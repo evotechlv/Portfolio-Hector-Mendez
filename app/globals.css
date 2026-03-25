@@ -98,13 +98,6 @@
     scroll-behavior: smooth;
   }
 }
-  body {
-    @apply bg-background text-foreground transition-colors duration-300;
-  }
-  html {
-    scroll-behavior: smooth;
-  }
-}
 
 @layer components {
   /* Crystal Card Glassmorphism - 30px blur, white inner glow */
