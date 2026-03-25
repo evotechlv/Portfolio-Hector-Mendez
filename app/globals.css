@@ -98,26 +98,31 @@
     scroll-behavior: smooth;
   }
 }
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
 
 @layer components {
-  /* Crystal Card - Glassmorphism effect */
+  /* Crystal Card Glassmorphism - 30px blur, white inner glow */
   .crystal-card {
-    @apply relative bg-white/40 dark:bg-white/5 backdrop-blur-3xl border border-white/60 dark:border-white/10 rounded-3xl;
+    @apply relative bg-white/40 dark:bg-white/5 backdrop-blur-[30px] border border-white/60 dark:border-white/10 rounded-3xl;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 10px 30px rgba(0, 0, 0, 0.08);
   }
 
-  /* Paper texture overlay */
-  .texture-paper {
-    background-image: 
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='6' result='noise'/%3E%3C/filter%3E%3Crect width='100' height='100' fill='%23f5f5f7' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  .dark .crystal-card {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 10px 30px rgba(0, 0, 0, 0.3);
   }
 
-  /* Blueprint grid - fixed background */
+  /* Architectural Blueprint Grid - 5% opacity */
   .blueprint-grid {
     background-image: 
       linear-gradient(rgba(0, 122, 255, 0.05) 1px, transparent 1px),
       linear-gradient(90deg, rgba(0, 122, 255, 0.05) 1px, transparent 1px);
     background-size: 60px 60px;
-    background-attachment: fixed;
   }
 
   .dark .blueprint-grid {
@@ -126,7 +131,7 @@
       linear-gradient(90deg, rgba(10, 132, 255, 0.08) 1px, transparent 1px);
   }
 
-  /* Scroll reveal animation */
+  /* Reveal on Scroll Animation */
   @keyframes scrollReveal {
     from {
       opacity: 0;
@@ -143,18 +148,22 @@
     opacity: 0;
   }
 
-  /* Stagger delays */
-  .scroll-reveal-0 { animation-delay: 0s; }
   .scroll-reveal-1 { animation-delay: 0.1s; }
   .scroll-reveal-2 { animation-delay: 0.2s; }
   .scroll-reveal-3 { animation-delay: 0.3s; }
+  .scroll-reveal-4 { animation-delay: 0.4s; }
 
-  /* 3D tilt effect on hover */
-  @keyframes tilt {
-    0%, 100% { transform: perspective(1000px) rotateX(0) rotateY(0); }
-    50% { transform: perspective(1000px) rotateX(-2deg) rotateY(2deg); }
+  /* Pulsing Available Indicator */
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
   }
 
+  .pulse-available {
+    animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Smooth Hover Tilt Effect */
   .hover-tilt {
     transition: all 0.3s ease-out;
   }
@@ -168,34 +177,21 @@
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   }
 
-  /* Shimmer effect */
-  @keyframes shimmer {
-    0% { background-position: -1000px 0; }
-    100% { background-position: 1000px 0; }
+  /* Floating Dock Animation */
+  .dock-item {
+    @apply transition-all duration-300 ease-out;
   }
 
-  .shimmer {
-    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
-    background-size: 1000px 100%;
-    animation: shimmer 3s infinite;
+  .dock-item:hover {
+    transform: scale(1.1) translateY(-8px);
   }
 
-  /* Blob animation */
-  @keyframes blob {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(30px, -50px) scale(1.1); }
-    66% { transform: translate(-20px, 20px) scale(0.9); }
+  /* Timeline connector */
+  .timeline-dot {
+    @apply relative w-4 h-4 rounded-full bg-accent;
   }
 
-  .animate-blob {
-    animation: blob 7s infinite;
-  }
-
-  .animation-delay-2000 {
-    animation-delay: 2s;
-  }
-
-  .animation-delay-4000 {
-    animation-delay: 4s;
+  .timeline-connector {
+    @apply absolute left-1/2 top-full w-0.5 h-12 bg-border -translate-x-1/2;
   }
 }
