@@ -31,7 +31,7 @@ export function Navigation() {
       <nav 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled 
-            ? "crystal-card shadow-lg shadow-accent/5 dark:shadow-accent/10" 
+            ? "glass-crystal shadow-lg shadow-accent/5 dark:shadow-accent/10" 
             : "bg-transparent"
         }`}
       >
@@ -101,7 +101,7 @@ export function Navigation() {
           onClick={() => setIsMobileMenuOpen(false)}
         />
         <div 
-          className={`absolute top-20 left-4 right-4 crystal-card p-6 shadow-2xl transition-all duration-300 ${
+          className={`absolute top-20 left-4 right-4 glass-crystal rounded-3xl p-6 shadow-2xl transition-all duration-300 ${
             isMobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
           }`}
         >

@@ -1,142 +1,167 @@
 "use client"
 
-import { Mail, Phone, MapPin, ArrowDown, Sparkles } from "lucide-react"
+import { Mail, Linkedin, Github, ArrowDown, Phone, Globe, Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useState, useEffect } from "react"
 
 export function HeroSection() {
-  const [isScrolled, setIsScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center px-4 py-20 blueprint-grid texture-paper overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-blue-50 dark:from-background dark:via-background dark:to-blue-950/10 pointer-events-none" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20 pt-24">
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent/3 dark:from-background dark:to-accent/5" />
       
-      {/* Animated background orbs */}
-      <div className="absolute top-20 right-20 w-96 h-96 bg-accent/10 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob hidden lg:block" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-accent/10 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000 hidden lg:block" />
+      {/* Animated blueprint grid */}
+      <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: `
+          linear-gradient(rgba(0,122,255,0.3) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0,122,255,0.3) 1px, transparent 1px),
+          linear-gradient(rgba(0,122,255,0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0,122,255,0.1) 1px, transparent 1px)
+        `,
+        backgroundSize: '100px 100px, 100px 100px, 20px 20px, 20px 20px',
+        animation: 'drift 30s linear infinite'
+      }} />
+      
+      {/* Decorative glass elements with blur */}
+      <div className="absolute top-32 right-12 w-56 h-56 glass-crystal-sm rounded-full opacity-20 hidden lg:block blur-3xl" />
+      <div className="absolute bottom-40 left-12 w-48 h-48 glass-crystal-sm rounded-full opacity-15 hidden lg:block blur-3xl" />
 
-      <div className="relative z-10 max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        {/* Left Content */}
-        <div className="space-y-8 scroll-reveal">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full crystal-card w-fit hover-tilt">
-            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <span className="text-sm font-medium text-foreground">Available for Projects</span>
-          </div>
-
-          {/* Main Heading */}
-          <div className="space-y-4">
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1] text-foreground">
-              <span className="block text-accent">HECTOR</span>
-              <span className="block">MENDEZ</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground font-medium">
-              Construction Operations • Digital Product Design • Project Logistics
+      <div className="relative z-10 max-w-7xl mx-auto w-full">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left: Premium Typography */}
+          <div className="space-y-8">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-crystal-sm">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                <p className="text-sm font-medium text-muted-foreground">Available for Projects</p>
+              </div>
+              
+              <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold text-foreground leading-[1.05] tracking-tighter" style={{ fontFamily: 'var(--font-display)' }}>
+                <span className="text-balance block">Hector</span>
+                <span className="text-balance text-accent block">Mendez</span>
+              </h1>
+              
+              <p className="text-xl text-muted-foreground font-medium">
+                Construction Operations & Digital Design Architect
+              </p>
+            </div>
+            
+            <p className="text-lg text-muted-foreground max-w-lg leading-relaxed">
+              Integrating hardware, software, and DevOps principles to optimize system reliability. Expert in construction estimations, 3D rendering, logistics orchestration, and financial management.
             </p>
-          </div>
+            
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4 pt-4">
+              <Button className="gap-2 bg-accent hover:bg-accent/90 dark:hover:bg-accent/80 text-accent-foreground rounded-full px-8 py-6 text-base shimmer-button transition-all duration-300" asChild>
+                <a href="#expertise">
+                  Explore Expertise
+                </a>
+              </Button>
+              <Button variant="outline" className="gap-2 border-muted hover:border-muted/80 hover:bg-muted/40 dark:hover:bg-accent/10 rounded-full px-8 py-6 text-base transition-all duration-300" asChild>
+                <a href="#" download>
+                  <Download className="w-4 h-4" />
+                  Download CV
+                </a>
+              </Button>
+            </div>
 
-          {/* Description */}
-          <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-            Architect of operational excellence. Bridging construction management with digital design systems to deliver seamless project orchestration.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-4 pt-4">
-            <Button 
-              className="gap-2 bg-accent hover:bg-accent/90 text-white rounded-full px-8 py-6 text-base font-medium transition-all duration-300"
-              asChild
-            >
-              <a href="#projects">
-                <Sparkles className="w-4 h-4" />
-                View Projects
-              </a>
-            </Button>
-            <Button 
-              variant="outline" 
-              className="gap-2 border-border rounded-full px-8 py-6 text-base font-medium transition-all duration-300 hover-tilt"
-              asChild
-            >
-              <a href="mailto:mail@domain.com">
-                <Mail className="w-4 h-4" />
-                Get in Touch
-              </a>
-            </Button>
-          </div>
-
-          {/* Contact Info */}
-          <div className="pt-8 space-y-4 border-t border-border">
-            <div className="flex flex-wrap gap-6">
-              <a href="tel:+259699595" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group">
-                <Phone className="w-4 h-4 group-hover:text-accent transition-colors" />
-                +25 969 959 995
-              </a>
-              <a href="mailto:mail@domain.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group">
-                <Mail className="w-4 h-4 group-hover:text-accent transition-colors" />
-                mail@domain.com
-              </a>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <MapPin className="w-4 h-4" />
-                Avenue Park 120, LA
+            {/* Contact Info */}
+            <div className="pt-8 space-y-3 border-t border-white/10 dark:border-white/5">
+              <p className="text-sm font-semibold text-accent">Get in Touch</p>
+              <div className="flex flex-wrap gap-4">
+                <a href="mailto:me@hectormendez.io" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group">
+                  <Mail className="w-4 h-4 group-hover:text-accent transition-colors" />
+                  <span className="text-sm">me@hectormendez.io</span>
+                </a>
+                <a href="tel:+17026095075" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group">
+                  <Phone className="w-4 h-4 group-hover:text-accent transition-colors" />
+                  <span className="text-sm">(702) 609-5075</span>
+                </a>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Right: Crystal Contact Card */}
-        <div className="flex justify-center lg:justify-end scroll-reveal scroll-reveal-1">
-          <div className="relative group w-full max-w-md">
-            {/* Glow background */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-accent/20 via-accent/10 to-accent/20 rounded-[2.5rem] blur-2xl opacity-40 group-hover:opacity-60 transition-all duration-500" />
-            
-            {/* Crystal Card */}
-            <div className="relative crystal-card p-8 lg:p-10 space-y-6 hover-tilt">
-              {/* Decorative corners */}
-              <div className="absolute top-4 left-4 w-6 h-6 border-t border-l border-accent/30" />
-              <div className="absolute top-4 right-4 w-6 h-6 border-t border-r border-accent/30" />
-              <div className="absolute bottom-4 left-4 w-6 h-6 border-b border-l border-accent/30" />
-              <div className="absolute bottom-4 right-4 w-6 h-6 border-b border-r border-accent/30" />
-
-              {/* Content */}
-              <div className="relative space-y-6">
-                {/* Avatar */}
+          {/* Right: Crystal Contact Card */}
+          <div className="flex justify-center lg:justify-end lg:col-span-1">
+            <div className="relative group w-full max-w-sm">
+              {/* Animated glow effect */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-accent/30 via-accent/20 to-accent/30 rounded-[2.5rem] blur-3xl opacity-30 group-hover:opacity-50 transition-opacity duration-700 animate-pulse" />
+              
+              {/* Crystal glass card */}
+              <div className="relative glass-crystal-lg rounded-[2.5rem] p-8 lg:p-10 transform group-hover:scale-[1.02] transition-all duration-500 space-y-8">
+                {/* Premium Avatar */}
                 <div className="flex justify-center">
-                  <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 border border-accent/30 flex items-center justify-center text-4xl font-bold text-accent">
-                    HM
+                  <div className="relative w-32 h-32">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent/30 to-accent/5 blur-xl" />
+                    <div className="relative w-full h-full rounded-full bg-gradient-to-br from-accent/20 to-accent/5 border-2 border-accent/30 flex items-center justify-center">
+                      <span className="text-5xl font-bold text-accent" style={{ fontFamily: 'var(--font-display)' }}>◆</span>
+                    </div>
                   </div>
                 </div>
-
+                
                 <div className="text-center space-y-2">
-                  <h2 className="text-3xl font-bold text-foreground">Let's Build</h2>
-                  <p className="text-sm text-muted-foreground">Exceptional projects require exceptional partners</p>
+                  <h2 className="text-3xl font-semibold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+                    Let's Build
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Turning complex construction operations into seamless digital systems
+                  </p>
                 </div>
 
-                {/* Action Button */}
-                <Button 
-                  className="w-full gap-2 bg-accent hover:bg-accent/90 text-white rounded-full py-6 font-medium transition-all duration-300"
-                  asChild
-                >
-                  <a href="mailto:mail@domain.com">
-                    <Mail className="w-4 h-4" />
-                    Start a Project
-                  </a>
-                </Button>
-
-                {/* Project Status */}
-                <div className="space-y-3 pt-4 border-t border-accent/20">
-                  <p className="text-xs font-semibold text-accent uppercase tracking-wider">Project Status</p>
-                  <div className="w-full bg-muted/30 rounded-full h-1.5 overflow-hidden">
-                    <div className="w-3/4 h-full bg-gradient-to-r from-accent to-accent/50 rounded-full" />
+                <div className="space-y-3">
+                  {/* Primary CTA */}
+                  <Button 
+                    className="w-full gap-2 bg-accent hover:bg-accent/90 dark:hover:bg-accent/80 text-accent-foreground rounded-full py-6 font-medium transition-all duration-300"
+                    asChild
+                  >
+                    <a href="mailto:me@hectormendez.io">
+                      <Mail className="w-4 h-4" />
+                      Start a Project
+                    </a>
+                  </Button>
+                  
+                  {/* LinkedIn CTA */}
+                  <Button 
+                    className="w-full gap-2 bg-[#0A66C2] hover:bg-[#0A66C2]/90 text-white rounded-full py-6 font-medium transition-all duration-300"
+                    asChild
+                  >
+                    <a href="https://linkedin.com/in/hectormendez" target="_blank" rel="noopener noreferrer">
+                      <Linkedin className="w-4 h-4" />
+                      Connect on LinkedIn
+                    </a>
+                  </Button>
+                  
+                  <div className="grid grid-cols-2 gap-3 pt-2">
+                    {/* GitHub */}
+                    <Button 
+                      variant="outline" 
+                      className="gap-2 border-muted/30 hover:border-muted/60 hover:bg-muted/30 dark:hover:bg-accent/10 rounded-full py-5 transition-all duration-300"
+                      asChild
+                    >
+                      <a href="https://github.com/hectormendez" target="_blank" rel="noopener noreferrer" title="GitHub">
+                        <Github className="w-4 h-4" />
+                        <span className="hidden sm:inline">GitHub</span>
+                      </a>
+                    </Button>
+                    
+                    {/* Website */}
+                    <Button 
+                      variant="outline" 
+                      className="gap-2 border-muted/30 hover:border-muted/60 hover:bg-muted/30 dark:hover:bg-accent/10 rounded-full py-5 transition-all duration-300"
+                      asChild
+                    >
+                      <a href="https://hectormendez.io" target="_blank" rel="noopener noreferrer" title="Website">
+                        <Globe className="w-4 h-4" />
+                        <span className="hidden sm:inline">Website</span>
+                      </a>
+                    </Button>
                   </div>
-                  <p className="text-xs text-muted-foreground">Available for New Construction & Design Projects</p>
+                </div>
+
+                {/* Footer text */}
+                <div className="pt-6 border-t border-white/10 dark:border-white/5 text-center">
+                  <p className="text-xs text-muted-foreground">
+                    Las Vegas, NV • USA
+                  </p>
                 </div>
               </div>
             </div>
@@ -146,12 +171,9 @@ export function HeroSection() {
 
       {/* Scroll indicator */}
       <button 
-        onClick={() => {
-          const element = document.getElementById('field-grid')
-          element?.scrollIntoView({ behavior: 'smooth' })
-        }}
+        onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer group"
-        aria-label="Scroll down"
+        aria-label="Scroll to about section"
       >
         <ArrowDown className="w-6 h-6 text-muted-foreground group-hover:text-accent transition-colors" />
       </button>
