@@ -104,15 +104,15 @@
 /* Glass morphism effect utilities */
 @layer components {
   .glass {
-    @apply bg-white/80 backdrop-blur-20 border border-white/20;
+    @apply bg-white/80 backdrop-blur-lg border border-white/20;
   }
   
   .glass-sm {
-    @apply bg-white/60 backdrop-blur-10 border border-white/10;
+    @apply bg-white/60 backdrop-blur-sm border border-white/10;
   }
   
   .glass-xl {
-    @apply bg-white/90 backdrop-blur-30 border border-white/30;
+    @apply bg-white/90 backdrop-blur-xl border border-white/30;
   }
 
   /* Subtle texture overlay for Paper effect */
