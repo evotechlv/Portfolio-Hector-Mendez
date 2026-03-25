@@ -5,22 +5,29 @@
 
 :root {
   /* iOS Studio White Theme - Light Mode */
+  /* Primary Background: System Gray 6 (#F2F2F7) */
   --background: oklch(0.9765 0.002 264);
   --foreground: oklch(0.11 0.008 264);
+  /* Glass & Cards: Ultra-Light Material with backdrop blur */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.11 0.008 264);
   --popover: oklch(0.99 0.002 264);
   --popover-foreground: oklch(0.11 0.008 264);
+  /* Vibrant Azure (#007AFF) for interactive elements */
   --primary: oklch(0.512 0.213 264.64);
   --primary-foreground: oklch(1 0 0);
+  /* Secondary: Softer blue-gray */
   --secondary: oklch(0.94 0.004 264);
   --secondary-foreground: oklch(0.11 0.008 264);
+  /* Muted: Light gray for secondary elements */
   --muted: oklch(0.95 0.002 264);
   --muted-foreground: oklch(0.50 0.008 264);
+  /* Accent: Same as primary - Vibrant Azure */
   --accent: oklch(0.512 0.213 264.64);
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.62 0.25 29.2);
   --destructive-foreground: oklch(1 0 0);
+  /* Borders: Subtle gray */
   --border: oklch(0.92 0.002 264);
   --input: oklch(0.98 0.002 264);
   --ring: oklch(0.512 0.213 264.64);
@@ -38,41 +45,9 @@
   --sidebar-accent-foreground: oklch(0.11 0.008 264);
   --sidebar-border: oklch(0.92 0.002 264);
   --sidebar-ring: oklch(0.512 0.213 264.64);
-}
-
-.dark {
-  --background: oklch(0.12 0.01 260);
-  --foreground: oklch(0.96 0.005 260);
-  --card: oklch(0.18 0.01 260);
-  --card-foreground: oklch(0.96 0.005 260);
-  --popover: oklch(0.18 0.01 260);
-  --popover-foreground: oklch(0.96 0.005 260);
-  --primary: oklch(0.60 0.20 264.64);
-  --primary-foreground: oklch(0.12 0.01 260);
-  --secondary: oklch(0.28 0.01 260);
-  --secondary-foreground: oklch(0.96 0.005 260);
-  --muted: oklch(0.22 0.008 260);
-  --muted-foreground: oklch(0.65 0.008 260);
-  --accent: oklch(0.60 0.20 264.64);
-  --accent-foreground: oklch(0.12 0.01 260);
-  --destructive: oklch(0.60 0.22 25);
-  --destructive-foreground: oklch(0.96 0.005 260);
-  --border: oklch(0.28 0.01 260);
-  --input: oklch(0.28 0.01 260);
-  --ring: oklch(0.60 0.20 264.64);
-  --chart-1: oklch(0.60 0.20 264.64);
-  --chart-2: oklch(0.55 0.15 200);
-  --chart-3: oklch(0.65 0.12 150);
-  --chart-4: oklch(0.58 0.18 280);
-  --chart-5: oklch(0.70 0.15 60);
-  --sidebar: oklch(0.12 0.01 260);
-  --sidebar-foreground: oklch(0.96 0.005 260);
-  --sidebar-primary: oklch(0.60 0.20 264.64);
-  --sidebar-primary-foreground: oklch(0.12 0.01 260);
-  --sidebar-accent: oklch(0.22 0.01 260);
-  --sidebar-accent-foreground: oklch(0.96 0.005 260);
-  --sidebar-border: oklch(0.28 0.01 260);
-  --sidebar-ring: oklch(0.60 0.20 264.64);
+  /* Glass effect opacity */
+  --glass-opacity: 0.8;
+  --glass-blur: 20px;
 }
 
 @theme inline {
@@ -122,23 +97,25 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground transition-colors duration-300;
+    @apply bg-background text-foreground;
   }
 }
 
+/* Glass morphism effect utilities */
 @layer components {
   .glass {
-    @apply bg-white/80 dark:bg-slate-900/50 backdrop-blur-lg border border-white/20 dark:border-white/10 shadow-lg;
+    @apply bg-white/80 backdrop-blur-lg border border-white/20;
   }
   
   .glass-sm {
-    @apply bg-white/60 dark:bg-slate-900/40 backdrop-blur-sm border border-white/10 dark:border-white/5;
+    @apply bg-white/60 backdrop-blur-sm border border-white/10;
   }
   
   .glass-xl {
-    @apply bg-white/90 dark:bg-slate-900/60 backdrop-blur-xl border border-white/30 dark:border-white/15 shadow-2xl;
+    @apply bg-white/90 backdrop-blur-xl border border-white/30;
   }
 
+  /* Subtle texture overlay for Paper effect */
   .texture-paper {
     background-image: 
       repeating-linear-gradient(
@@ -157,121 +134,8 @@
       );
   }
 
+  /* Subtle gradient background */
   .bg-gradient-studio {
     background: linear-gradient(135deg, #F2F2F7 0%, #FFFFFF 100%);
   }
-
-  .bg-gradient-dark {
-    background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
-  }
-
-  .pulse-available {
-    @apply relative flex h-3 w-3 rounded-full;
-  }
-
-  .pulse-available::before {
-    @apply absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75;
-    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  .pulse-available::after {
-    @apply relative inline-flex rounded-full h-3 w-3 bg-green-500;
-  }
-
-  @keyframes pulse {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
-  }
-
-  @keyframes drift {
-    0% {
-      transform: translate(0, 0);
-    }
-    100% {
-      transform: translate(60px, 60px);
-    }
-  }
-
-  .blueprint-grid {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .blueprint-grid::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: 
-      linear-gradient(
-        rgba(0, 122, 255, 0.03) 1px,
-        transparent 1px
-      ),
-      linear-gradient(
-        90deg,
-        rgba(0, 122, 255, 0.03) 1px,
-        transparent 1px
-      );
-    background-size: 60px 60px;
-    pointer-events: none;
-    opacity: 0.5;
-    animation: drift 20s linear infinite;
-  }
-
-  .shimmer-button {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .shimmer-button::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.3),
-      transparent
-    );
-    animation: shimmer 3s infinite;
-    pointer-events: none;
-  }
-
-  @keyframes shimmer {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(100%);
-    }
-  }
-
-  @keyframes scrollIn {
-    from {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .scroll-reveal {
-    animation: scrollIn 0.8s ease-out forwards;
-    opacity: 0;
-  }
-
-  .scroll-reveal-stagger:nth-child(1) { animation-delay: 0.1s; }
-  .scroll-reveal-stagger:nth-child(2) { animation-delay: 0.2s; }
-  .scroll-reveal-stagger:nth-child(3) { animation-delay: 0.3s; }
-  .scroll-reveal-stagger:nth-child(4) { animation-delay: 0.4s; }
-  .scroll-reveal-stagger:nth-child(5) { animation-delay: 0.5s; }
 }
-

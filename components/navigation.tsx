@@ -1,16 +1,15 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Menu, X, Download } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/theme-toggle"
 
 const navLinks = [
   { href: "#about", label: "About" },
-  { href: "#expertise", label: "Expertise" },
   { href: "#experience", label: "Experience" },
-  { href: "#education", label: "Education" },
+  { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Portfolio" },
+  { href: "#education", label: "Education" },
 ]
 
 export function Navigation() {
@@ -21,119 +20,6 @@ export function Navigation() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
     }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  return (
-    <>
-      {/* Main Navigation - Glassmorphism */}
-      <nav 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled 
-            ? "glass shadow-lg shadow-accent/5 dark:shadow-accent/10" 
-            : "bg-transparent"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex items-center justify-between h-16 lg:h-20">
-            {/* Logo */}
-            <a 
-              href="#" 
-              className="text-lg lg:text-2xl font-bold tracking-tight text-foreground hover:text-accent transition-colors"
-              style={{ fontFamily: 'var(--font-display)' }}
-            >
-              <span className="text-accent">◆</span> HECTOR
-            </a>
-
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
-                >
-                  {link.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-accent/50 group-hover:w-full transition-all duration-300" />
-                </a>
-              ))}
-            </div>
-
-            {/* Right Section - Desktop */}
-            <div className="hidden lg:flex items-center gap-4">
-              <Button 
-                className="gap-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded-full px-6 shimmer-button"
-                size="sm"
-                asChild
-              >
-                <a href="#" download>
-                  <Download className="w-4 h-4" />
-                  Download CV
-                </a>
-              </Button>
-              <ThemeToggle />
-            </div>
-
-            {/* Mobile Controls */}
-            <div className="lg:hidden flex items-center gap-3">
-              <ThemeToggle />
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 text-foreground"
-                aria-label="Toggle menu"
-              >
-                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* Mobile Menu - Crystal Glass */}
-      <div 
-        className={`fixed inset-0 z-40 lg:hidden transition-all duration-300 ${
-          isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-      >
-        <div 
-          className="absolute inset-0 bg-background/80 dark:bg-background/50 backdrop-blur-lg"
-          onClick={() => setIsMobileMenuOpen(false)}
-        />
-        <div 
-          className={`absolute top-20 left-4 right-4 glass rounded-3xl p-6 shadow-2xl transition-all duration-300 ${
-            isMobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
-          }`}
-        >
-          <div className="flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="px-4 py-3 text-foreground hover:text-accent hover:bg-accent/5 dark:hover:bg-accent/10 rounded-xl transition-colors font-medium"
-              >
-                {link.label}
-              </a>
-            ))}
-            <div className="pt-4 mt-4 border-t border-white/10 dark:border-white/5">
-              <Button 
-                className="w-full gap-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded-full"
-                onClick={() => setIsMobileMenuOpen(false)}
-                asChild
-              >
-                <a href="#" download>
-                  <Download className="w-4 h-4" />
-                  Download CV
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  )
-}
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
