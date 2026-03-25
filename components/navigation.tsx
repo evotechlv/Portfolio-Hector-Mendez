@@ -34,15 +34,15 @@ export function Navigation() {
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-5 md:px-4">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <a 
               href="#" 
-              className="text-xl lg:text-2xl font-bold tracking-tight text-foreground"
+              className="text-lg sm:text-xl lg:text-2xl font-bold tracking-tight text-foreground"
               style={{ fontFamily: 'var(--font-display)' }}
             >
-              <span className="text-accent">HECTOR</span> MENDEZ
+              <span className="text-accent">HECTOR</span> <span className="hidden sm:inline">MENDEZ</span>
             </a>
 
             {/* Desktop Navigation */}
@@ -58,7 +58,7 @@ export function Navigation() {
                 </a>
               ))}
               <Button 
-                className="ml-4 bg-accent hover:bg-accent/90 text-accent-foreground rounded-full px-6"
+                className="ml-4 bg-accent hover:bg-accent/90 text-accent-foreground rounded-full px-6 h-12"
                 size="sm"
               >
                 Contact
@@ -88,7 +88,7 @@ export function Navigation() {
           onClick={() => setIsMobileMenuOpen(false)}
         />
         <div 
-          className={`absolute top-16 left-4 right-4 glass rounded-2xl p-6 shadow-2xl transition-all duration-300 ${
+          className={`absolute top-16 left-5 right-5 glass rounded-2xl p-6 shadow-2xl transition-all duration-300 ${
             isMobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
           }`}
         >
@@ -104,7 +104,7 @@ export function Navigation() {
               </a>
             ))}
             <Button 
-              className="mt-4 bg-accent hover:bg-accent/90 text-accent-foreground w-full rounded-full"
+              className="mt-4 bg-accent hover:bg-accent/90 text-accent-foreground w-full rounded-full h-12"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Contact

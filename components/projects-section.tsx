@@ -61,16 +61,16 @@ const techProjects = [
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="py-24 px-4 bg-background">
+    <section id="projects" className="py-16 md:py-24 px-5 md:px-4 bg-background">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16 space-y-4">
+        <div className="text-center mb-12 md:mb-16 space-y-4">
           <p className="text-accent font-semibold tracking-wide uppercase text-xs">
             Project Portfolio
           </p>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
             Featured Work
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
             Construction operations and tech solutions showcasing precision in execution
           </p>
         </div>
@@ -78,18 +78,18 @@ export function ProjectsSection() {
         <div className="space-y-12">
           {/* Construction Projects */}
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 rounded-lg bg-accent/10 text-accent">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6">
+              <div className="p-2 rounded-lg bg-accent/10 text-accent shrink-0">
                 <Building className="w-5 h-5" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+              <h3 className="text-base md:text-lg font-semibold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
                 Construction & Operations
               </h3>
-              <span className="text-xs px-2 py-0.5 bg-muted text-muted-foreground rounded-full">
+              <span className="text-xs px-2 py-0.5 bg-muted text-muted-foreground rounded-full w-fit">
                 Estimations, Renders & Systems
               </span>
             </div>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {constructionProjects.map((project, index) => (
                 <ProjectCard key={project.id} project={project} featured={index === 0} />
               ))}
@@ -98,18 +98,18 @@ export function ProjectsSection() {
 
           {/* Tech Projects */}
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 rounded-lg bg-accent/10 text-accent">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6">
+              <div className="p-2 rounded-lg bg-accent/10 text-accent shrink-0">
                 <Cpu className="w-5 h-5" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+              <h3 className="text-base md:text-lg font-semibold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
                 Technology & Innovation
               </h3>
-              <span className="text-xs px-2 py-0.5 bg-muted text-muted-foreground rounded-full">
+              <span className="text-xs px-2 py-0.5 bg-muted text-muted-foreground rounded-full w-fit">
                 Entrepreneurship & IT
               </span>
             </div>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {techProjects.map((project, index) => (
                 <ProjectCard key={project.id} project={project} featured={index === 0} />
               ))}
@@ -119,7 +119,7 @@ export function ProjectsSection() {
 
         {/* CTA */}
         <div className="mt-12 text-center">
-          <Button size="lg" className="gap-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded-full px-8">
+          <Button className="w-full sm:w-auto gap-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded-full px-8 h-12">
             <Box className="w-5 h-5" />
             Download Full Project List
           </Button>
@@ -136,8 +136,8 @@ function ProjectCard({ project, featured = false }: { project: typeof constructi
         featured ? 'border-accent/30 ring-1 ring-accent/10 hover:glass-xl' : 'hover:glass-xl'
       }`}
     >
-      {/* Project Image Placeholder */}
-      <div className={`${project.image} h-44 relative overflow-hidden`}>
+      {/* Project Image Placeholder - 16:9 Aspect Ratio */}
+      <div className={`${project.image} aspect-video relative overflow-hidden`}>
         {/* Blueprint grid overlay */}
         <div 
           className="absolute inset-0 opacity-10"
@@ -161,13 +161,13 @@ function ProjectCard({ project, featured = false }: { project: typeof constructi
         </div>
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-background/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
-          <Button size="sm" variant="secondary" className="gap-2 rounded-full" asChild>
+          <Button size="sm" variant="secondary" className="gap-2 rounded-full h-10" asChild>
             <a href="#" target="_blank" rel="noopener noreferrer">
               <Github className="w-4 h-4" />
               Details
             </a>
           </Button>
-          <Button size="sm" className="gap-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded-full" asChild>
+          <Button size="sm" className="gap-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded-full h-10" asChild>
             <a href="#" target="_blank" rel="noopener noreferrer">
               <ExternalLink className="w-4 h-4" />
               View
@@ -183,7 +183,7 @@ function ProjectCard({ project, featured = false }: { project: typeof constructi
 
       {/* Content */}
       <div className="p-5 space-y-3">
-        <h3 className="text-lg font-semibold text-foreground leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
+        <h3 className="text-base md:text-lg font-semibold text-foreground leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
           {project.title}
         </h3>
         <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
