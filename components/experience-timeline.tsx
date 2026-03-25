@@ -66,52 +66,52 @@ export function ExperienceTimeline() {
   const [expandedId, setExpandedId] = useState<number | null>(null)
 
   return (
-    <section id="experience" className="py-12 md:py-24 px-5 md:px-4 bg-background pb-32 md:pb-24">
+    <section id="experience" className="py-12 md:py-24 px-5 md:px-4 bg-background border-t border-foreground/10 pb-32 md:pb-24">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-8 md:mb-16 space-y-3 md:space-y-4">
-          <p className="text-accent font-semibold tracking-wide uppercase text-xs">
-            Professional Timeline
+        <div className="mb-8 md:mb-16 space-y-3 md:space-y-4">
+          <p className="text-muted-foreground font-light tracking-wider uppercase text-xs">
+            Experience
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
             Career Journey
           </h2>
-          <p className="text-xs md:text-sm text-muted-foreground max-w-2xl mx-auto">
-            From tech entrepreneurship to construction operations - two decades of building systems
+          <p className="text-xs md:text-sm text-muted-foreground max-w-2xl font-light">
+            From tech entrepreneurship to construction operations — two decades of building systems
           </p>
         </div>
 
         {/* Mobile: Condensed Timeline with Collapsible Accomplishments */}
         <div className="space-y-3 md:hidden">
           {experiences.map((exp) => (
-            <div key={exp.id} className="glass rounded-xl overflow-hidden">
+            <div key={exp.id} className="border border-foreground/20 rounded-none overflow-hidden bg-foreground/[0.01]">
               {/* Header - Always Visible */}
               <button
                 onClick={() => setExpandedId(expandedId === exp.id ? null : exp.id)}
-                className="w-full p-4 flex items-center justify-between hover:bg-white/5 transition-colors"
+                className="w-full p-4 flex items-center justify-between hover:bg-foreground/5 transition-colors"
               >
                 <div className="text-left">
                   <p className="text-sm font-semibold text-foreground line-clamp-1">{exp.company}</p>
-                  <p className="text-xs text-muted-foreground">{exp.role.split(" - ")[0]}</p>
+                  <p className="text-xs text-muted-foreground font-light">{exp.role.split(" - ")[0]}</p>
                 </div>
                 {expandedId === exp.id ? (
-                  <Minus className="w-5 h-5 text-accent shrink-0 ml-2" />
+                  <Minus className="w-5 h-5 text-foreground shrink-0 ml-2" />
                 ) : (
-                  <Plus className="w-5 h-5 text-accent shrink-0 ml-2" />
+                  <Plus className="w-5 h-5 text-foreground shrink-0 ml-2" />
                 )}
               </button>
 
               {/* Expandable Details */}
               {expandedId === exp.id && (
-                <div className="border-t border-white/10 px-4 py-3 space-y-3 bg-white/2.5">
-                  <p className="text-xs text-muted-foreground">
-                    <span className="text-accent font-medium">{exp.period}</span> · {exp.location}
+                <div className="border-t border-foreground/10 px-4 py-3 space-y-3 bg-foreground/[0.02]">
+                  <p className="text-xs text-muted-foreground font-light">
+                    <span className="text-foreground font-medium">{exp.period}</span> · {exp.location}
                   </p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
+                  <p className="text-xs text-muted-foreground leading-relaxed font-light">
                     {exp.description}
                   </p>
                   <div className="flex flex-wrap gap-1.5">
                     {exp.highlights.map((highlight) => (
-                      <span key={highlight} className="text-[10px] px-2 py-1 bg-accent/10 text-muted-foreground rounded">
+                      <span key={highlight} className="text-[10px] px-2 py-1 border border-foreground/20 text-muted-foreground rounded-none font-light">
                         {highlight}
                       </span>
                     ))}
@@ -125,7 +125,7 @@ export function ExperienceTimeline() {
         {/* Desktop: Traditional Timeline */}
         <div className="hidden md:block relative">
           {/* Timeline line */}
-          <div className="absolute left-4 lg:left-1/2 lg:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent via-accent/50 to-border" />
+          <div className="absolute left-4 lg:left-1/2 lg:-translate-x-px top-0 bottom-0 w-0.5 bg-foreground/10" />
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
@@ -138,8 +138,8 @@ export function ExperienceTimeline() {
                 onMouseLeave={() => setHoveredId(null)}
               >
                 {/* Timeline dot */}
-                <div className="absolute left-4 lg:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-background border-2 border-accent z-10 flex items-center justify-center">
-                  <div className={`w-2 h-2 rounded-full bg-accent transition-transform duration-300 ${
+                <div className="absolute left-4 lg:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-background border-2 border-foreground z-10 flex items-center justify-center">
+                  <div className={`w-1.5 h-1.5 rounded-full bg-foreground transition-transform duration-300 ${
                     hoveredId === exp.id ? 'scale-150' : 'scale-100'
                   }`} />
                 </div>
@@ -147,29 +147,29 @@ export function ExperienceTimeline() {
                 {/* Content */}
                 <div className={`flex-1 ml-12 lg:ml-0 ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'}`}>
                   <div 
-                    className={`glass rounded-2xl p-6 shadow-sm transition-all duration-300 ${
-                      hoveredId === exp.id ? 'shadow-lg shadow-accent/10 glass-xl' : ''
+                    className={`border border-foreground/20 rounded-none p-6 transition-all duration-300 bg-foreground/[0.01] ${
+                      hoveredId === exp.id ? 'border-foreground/40 bg-foreground/[0.03]' : ''
                     }`}
                   >
                     <div className="flex items-start gap-4">
-                      <div className={`p-2.5 rounded-xl shrink-0 transition-colors ${
-                        hoveredId === exp.id ? 'bg-accent text-accent-foreground' : 'bg-accent/10 text-accent'
+                      <div className={`p-2 border rounded-none shrink-0 transition-colors ${
+                        hoveredId === exp.id ? 'border-foreground/40 text-foreground' : 'border-foreground/20 text-foreground/60'
                       }`}>
-                        <exp.icon className="w-5 h-5" />
+                        <exp.icon className="w-4 h-4" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex flex-wrap items-center gap-2 mb-1">
-                          <h3 className="font-semibold text-lg text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+                          <h3 className="font-semibold text-lg text-foreground tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
                             {exp.role}
                           </h3>
-                          <span className="text-xs px-2 py-0.5 bg-accent/10 text-accent rounded-full font-medium">
+                          <span className="text-xs px-2 py-0.5 border border-foreground/20 text-muted-foreground rounded-none font-light">
                             {exp.period}
                           </span>
                         </div>
-                        <p className="text-muted-foreground text-sm mb-3">
+                        <p className="text-muted-foreground text-sm mb-3 font-light">
                           {exp.company} · {exp.location}
                         </p>
-                        <p className={`text-muted-foreground text-sm leading-relaxed transition-all duration-300 ${
+                        <p className={`text-muted-foreground text-sm leading-relaxed transition-all duration-300 font-light ${
                           hoveredId === exp.id ? 'opacity-100' : 'opacity-80'
                         }`}>
                           {exp.description}
@@ -180,7 +180,7 @@ export function ExperienceTimeline() {
                           {exp.highlights.map((highlight) => (
                             <span 
                               key={highlight}
-                              className="text-xs px-2.5 py-1 bg-accent/5 text-muted-foreground rounded-md"
+                              className="text-xs px-2.5 py-1 border border-foreground/20 text-muted-foreground rounded-none font-light"
                             >
                               {highlight}
                             </span>
