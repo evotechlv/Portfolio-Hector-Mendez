@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Briefcase, Building2, HardHat, Cpu } from "lucide-react"
+import { Briefcase, Building2, HardHat, Cpu, Plus, Minus } from "lucide-react"
 
 const experiences = [
   {
@@ -63,45 +63,89 @@ const experiences = [
 
 export function ExperienceTimeline() {
   const [hoveredId, setHoveredId] = useState<number | null>(null)
+  const [expandedId, setExpandedId] = useState<number | null>(null)
 
   return (
-    <section id="experience" className="py-24 px-4 bg-background">
+    <section id="experience" className="py-12 md:py-24 px-5 md:px-4 bg-background pb-32 md:pb-24">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16 space-y-4">
+        <div className="text-center mb-8 md:mb-16 space-y-3 md:space-y-4">
           <p className="text-accent font-semibold tracking-wide uppercase text-xs">
             Professional Timeline
           </p>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
             Career Journey
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xs md:text-sm text-muted-foreground max-w-2xl mx-auto">
             From tech entrepreneurship to construction operations - two decades of building systems
           </p>
         </div>
 
-        <div className="relative">
+        {/* Mobile: Condensed Timeline with Collapsible Accomplishments */}
+        <div className="space-y-3 md:hidden">
+          {experiences.map((exp) => (
+            <div key={exp.id} className="glass rounded-xl overflow-hidden">
+              {/* Header - Always Visible */}
+              <button
+                onClick={() => setExpandedId(expandedId === exp.id ? null : exp.id)}
+                className="w-full p-4 flex items-center justify-between hover:bg-white/5 transition-colors"
+              >
+                <div className="text-left">
+                  <p className="text-sm font-semibold text-foreground line-clamp-1">{exp.company}</p>
+                  <p className="text-xs text-muted-foreground">{exp.role.split(" - ")[0]}</p>
+                </div>
+                {expandedId === exp.id ? (
+                  <Minus className="w-5 h-5 text-accent shrink-0 ml-2" />
+                ) : (
+                  <Plus className="w-5 h-5 text-accent shrink-0 ml-2" />
+                )}
+              </button>
+
+              {/* Expandable Details */}
+              {expandedId === exp.id && (
+                <div className="border-t border-white/10 px-4 py-3 space-y-3 bg-white/2.5">
+                  <p className="text-xs text-muted-foreground">
+                    <span className="text-accent font-medium">{exp.period}</span> · {exp.location}
+                  </p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    {exp.description}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {exp.highlights.map((highlight) => (
+                      <span key={highlight} className="text-[10px] px-2 py-1 bg-accent/10 text-muted-foreground rounded">
+                        {highlight}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop: Traditional Timeline */}
+        <div className="hidden md:block relative">
           {/* Timeline line */}
-          <div className="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent via-accent/50 to-border" />
+          <div className="absolute left-4 lg:left-1/2 lg:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent via-accent/50 to-border" />
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
               <div
                 key={exp.id}
-                className={`relative flex flex-col md:flex-row gap-8 ${
-                  index % 2 === 0 ? 'md:flex-row-reverse' : ''
+                className={`relative flex flex-col lg:flex-row gap-8 ${
+                  index % 2 === 0 ? 'lg:flex-row-reverse' : ''
                 }`}
                 onMouseEnter={() => setHoveredId(exp.id)}
                 onMouseLeave={() => setHoveredId(null)}
               >
                 {/* Timeline dot */}
-                <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-background border-2 border-accent z-10 flex items-center justify-center">
+                <div className="absolute left-4 lg:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-background border-2 border-accent z-10 flex items-center justify-center">
                   <div className={`w-2 h-2 rounded-full bg-accent transition-transform duration-300 ${
                     hoveredId === exp.id ? 'scale-150' : 'scale-100'
                   }`} />
                 </div>
 
                 {/* Content */}
-                <div className={`flex-1 ml-12 md:ml-0 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
+                <div className={`flex-1 ml-12 lg:ml-0 ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'}`}>
                   <div 
                     className={`glass rounded-2xl p-6 shadow-sm transition-all duration-300 ${
                       hoveredId === exp.id ? 'shadow-lg shadow-accent/10 glass-xl' : ''
@@ -148,7 +192,7 @@ export function ExperienceTimeline() {
                 </div>
 
                 {/* Spacer for alternating layout */}
-                <div className="hidden md:block flex-1" />
+                <div className="hidden lg:block flex-1" />
               </div>
             ))}
           </div>

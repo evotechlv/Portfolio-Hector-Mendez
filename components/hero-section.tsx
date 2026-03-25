@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-5 md:px-4 py-20 pt-28 md:pt-20">
+    <section className="relative min-h-screen lg:min-h-screen flex items-center justify-center overflow-hidden px-5 md:px-4 py-20 pt-28 md:pt-20 lg:pt-32">
       {/* Subtle gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent/3" />
       
@@ -29,42 +29,62 @@ export function HeroSection() {
 
       <div className="relative z-10 max-w-6xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
-          {/* Left: Typography - Mobile first */}
-          <div className="space-y-6 md:space-y-8">
-            <div className="space-y-4">
+          {/* Left: Typography - Mobile first, shortened on mobile */}
+          <div className="space-y-4 md:space-y-8">
+            {/* Mobile: Short title */}
+            <div className="space-y-3 lg:space-y-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-foreground leading-[1.1] tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
+                <span className="text-balance">Hector Mendez</span>
+              </h1>
+              <p className="text-lg sm:text-xl lg:text-2xl font-semibold text-accent">Master Builder</p>
+            </div>
+            
+            {/* Mobile: Short description, hidden on desktop */}
+            <p className="text-base text-muted-foreground leading-relaxed lg:hidden">
+              Construction operations & digital systems expert with 15+ years of experience.
+            </p>
+
+            {/* Desktop: Full description, hidden on mobile */}
+            <div className="hidden lg:block space-y-4">
               <p className="text-accent font-semibold tracking-wide uppercase text-xs">
                 Construction Operations & Design Specialist
               </p>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
-                <span className="text-balance">Hector Mendez</span>
-                <br />
-                <span className="text-accent text-balance">Precision in Construction & Digital Design</span>
-              </h1>
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
+                Experienced engineer integrating hardware, software, and DevOps principles to optimize system reliability. Expert in construction estimations, 3D rendering, and financial analytics.
+              </p>
             </div>
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-lg">
-              Experienced engineer integrating hardware, software, and DevOps principles to optimize system reliability. Expert in construction estimations, 3D rendering, and financial analytics.
-            </p>
-            <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-4 text-sm text-muted-foreground">
+            
+            {/* Status - Hidden on mobile, shown on desktop */}
+            <div className="hidden lg:flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                 Available for Projects
               </span>
-              <span className="hidden sm:inline">Las Vegas, NV</span>
+              <span>Las Vegas, NV</span>
             </div>
             
-            {/* CTA Buttons - Full width on mobile, stacked */}
-            <div className="flex flex-col sm:flex-row flex-wrap gap-3 pt-4">
-              <Button className="w-full sm:w-auto gap-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded-full px-6 h-12">
-                Request an Estimation
+            {/* CTA - Mobile: Single button, Desktop: Two buttons */}
+            <div className="pt-2">
+              <Button 
+                className="w-full lg:w-auto gap-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded-full px-6 h-12"
+                asChild
+              >
+                <a href="mailto:me@hectormendez.io">Get in Touch</a>
               </Button>
-              <Button variant="outline" className="w-full sm:w-auto gap-2 border-muted hover:bg-muted/50 hover:border-muted rounded-full px-6 h-12">
-                Download Full Project List
+              
+              {/* Desktop additional button */}
+              <Button 
+                variant="outline" 
+                className="hidden lg:inline-flex ml-3 gap-2 border-muted hover:bg-muted/50 hover:border-muted rounded-full px-6 h-12"
+                asChild
+              >
+                <a href="#">Download Full Project List</a>
               </Button>
             </div>
           </div>
 
-          {/* Right: Contact Card - Full width on mobile */}
-          <div className="flex justify-center lg:justify-end mt-8 md:mt-0">
+          {/* Right: Contact Card - Full width on mobile, hidden on mobile */}
+          <div className="hidden lg:flex justify-center lg:justify-end mt-8 md:mt-0">
             <div className="relative group w-full max-w-sm">
               {/* Glow effect */}
               <div className="absolute -inset-1 bg-gradient-to-r from-accent/20 via-accent/10 to-accent/20 rounded-3xl blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
@@ -79,12 +99,12 @@ export function HeroSection() {
                 
                 <div className="relative space-y-6">
                   {/* Avatar */}
-                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-accent/15 to-accent/5 border-2 border-accent/20 flex items-center justify-center mx-auto">
-                    <span className="text-2xl md:text-3xl font-bold text-accent" style={{ fontFamily: 'var(--font-display)' }}>HM</span>
+                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-accent/15 to-accent/5 border-2 border-accent/20 flex items-center justify-center mx-auto">
+                    <span className="text-3xl font-bold text-accent" style={{ fontFamily: 'var(--font-display)' }}>HM</span>
                   </div>
                   
                   <div className="text-center space-y-2">
-                    <h2 className="text-xl md:text-2xl font-semibold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+                    <h2 className="text-2xl font-semibold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
                       Connect with Me
                     </h2>
                     <p className="text-sm text-muted-foreground">
@@ -99,8 +119,7 @@ export function HeroSection() {
                     >
                       <a href="mailto:me@hectormendez.io">
                         <Mail className="w-4 h-4" />
-                        <span className="hidden sm:inline">me@hectormendez.io</span>
-                        <span className="sm:hidden">Email</span>
+                        me@hectormendez.io
                       </a>
                     </Button>
                     
@@ -111,8 +130,7 @@ export function HeroSection() {
                     >
                       <a href="https://linkedin.com/in/hectormendez" target="_blank" rel="noopener noreferrer">
                         <Linkedin className="w-4 h-4" />
-                        <span className="hidden sm:inline">Hire Me on LinkedIn</span>
-                        <span className="sm:hidden">LinkedIn</span>
+                        Hire Me on LinkedIn
                       </a>
                     </Button>
                     
@@ -139,16 +157,14 @@ export function HeroSection() {
                     >
                       <a href="https://hectormendez.io" target="_blank" rel="noopener noreferrer">
                         <Globe className="w-4 h-4" />
-                        <span className="hidden sm:inline">hectormendez.io</span>
-                        <span className="sm:hidden">Website</span>
+                        hectormendez.io
                       </a>
                     </Button>
                   </div>
                   
                   <p className="text-sm text-center text-muted-foreground flex items-center justify-center gap-2">
                     <Phone className="w-4 h-4" />
-                    <span className="hidden sm:inline">(702) 609-5075</span>
-                    <span className="sm:hidden">Contact</span>
+                    (702) 609-5075
                   </p>
                 </div>
               </div>
@@ -157,10 +173,10 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator - Hidden on mobile */}
       <button 
         onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer"
+        className="hidden lg:block absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer"
         aria-label="Scroll to about section"
       >
         <ArrowDown className="w-6 h-6 text-muted-foreground" />

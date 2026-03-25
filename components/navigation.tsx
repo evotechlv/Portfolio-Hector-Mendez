@@ -26,27 +26,27 @@ export function Navigation() {
 
   return (
     <>
-      {/* Main Navigation - Glassmorphism */}
+      {/* Main Navigation - Desktop Only */}
       <nav 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`hidden lg:fixed lg:top-0 lg:left-0 lg:right-0 z-50 transition-all duration-300 ${
           isScrolled 
             ? "glass shadow-lg shadow-accent/5" 
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-5 md:px-4">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <a 
               href="#" 
-              className="text-lg sm:text-xl lg:text-2xl font-bold tracking-tight text-foreground"
+              className="text-2xl font-bold tracking-tight text-foreground"
               style={{ fontFamily: 'var(--font-display)' }}
             >
-              <span className="text-accent">HECTOR</span> <span className="hidden sm:inline">MENDEZ</span>
+              <span className="text-accent">HECTOR</span> MENDEZ
             </a>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1">
+            <div className="flex items-center gap-1">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
@@ -64,54 +64,9 @@ export function Navigation() {
                 Contact
               </Button>
             </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-foreground"
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
           </div>
         </div>
       </nav>
-
-      {/* Mobile Menu - Glassmorphism */}
-      <div 
-        className={`fixed inset-0 z-40 lg:hidden transition-all duration-300 ${
-          isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-      >
-        <div 
-          className="absolute inset-0 bg-background/80 backdrop-blur-sm"
-          onClick={() => setIsMobileMenuOpen(false)}
-        />
-        <div 
-          className={`absolute top-16 left-5 right-5 glass rounded-2xl p-6 shadow-2xl transition-all duration-300 ${
-            isMobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
-          }`}
-        >
-          <div className="flex flex-col gap-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="px-4 py-3 text-foreground hover:text-accent hover:bg-accent/5 rounded-lg transition-colors font-medium"
-              >
-                {link.label}
-              </a>
-            ))}
-            <Button 
-              className="mt-4 bg-accent hover:bg-accent/90 text-accent-foreground w-full rounded-full h-12"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Contact
-            </Button>
-          </div>
-        </div>
-      </div>
     </>
   )
 }
