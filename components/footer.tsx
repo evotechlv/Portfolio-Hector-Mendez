@@ -2,7 +2,7 @@ import { Mail, Linkedin, Github, MapPin, Phone, Globe } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="bg-card border-t border-border py-16 px-4">
+    <footer className="glass border-t border-white/20 py-16 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
@@ -16,7 +16,7 @@ export function Footer() {
             <div className="flex gap-3 pt-2">
               <a 
                 href="mailto:me@hectormendez.io" 
-                className="p-2.5 rounded-lg bg-muted hover:bg-primary/10 hover:text-primary transition-colors"
+                className="p-2.5 rounded-lg bg-accent/10 hover:bg-accent/20 hover:text-accent transition-colors text-foreground"
                 aria-label="Email"
               >
                 <Mail className="w-5 h-5" />
@@ -25,7 +25,7 @@ export function Footer() {
                 href="https://linkedin.com/in/hectormendez" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-lg bg-muted hover:bg-[#0A66C2]/10 hover:text-[#0A66C2] transition-colors"
+                className="p-2.5 rounded-lg bg-accent/10 hover:bg-[#0A66C2]/20 hover:text-[#0A66C2] transition-colors text-foreground"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
@@ -34,7 +34,7 @@ export function Footer() {
                 href="https://github.com/hectormendez" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-lg bg-muted hover:bg-primary/10 hover:text-primary transition-colors"
+                className="p-2.5 rounded-lg bg-accent/10 hover:bg-accent/20 hover:text-accent transition-colors text-foreground"
                 aria-label="GitHub"
               >
                 <Github className="w-5 h-5" />
@@ -43,7 +43,7 @@ export function Footer() {
                 href="https://hectormendez.io" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-lg bg-muted hover:bg-primary/10 hover:text-primary transition-colors"
+                className="p-2.5 rounded-lg bg-accent/10 hover:bg-accent/20 hover:text-accent transition-colors text-foreground"
                 aria-label="Website"
               >
                 <Globe className="w-5 h-5" />
@@ -55,19 +55,19 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="font-semibold text-lg text-foreground">Quick Links</h4>
             <nav className="flex flex-col gap-2">
-              <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#about" className="text-muted-foreground hover:text-accent transition-colors">
                 About
               </a>
-              <a href="#experience" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#experience" className="text-muted-foreground hover:text-accent transition-colors">
                 Experience
               </a>
-              <a href="#skills" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#skills" className="text-muted-foreground hover:text-accent transition-colors">
                 Skills
               </a>
-              <a href="#education" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#education" className="text-muted-foreground hover:text-accent transition-colors">
                 Education
               </a>
-              <a href="#projects" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#projects" className="text-muted-foreground hover:text-accent transition-colors">
                 Projects
               </a>
             </nav>
@@ -78,19 +78,19 @@ export function Footer() {
             <h4 className="font-semibold text-lg text-foreground">Contact</h4>
             <div className="space-y-3">
               <p className="flex items-center gap-2 text-muted-foreground">
-                <MapPin className="w-4 h-4 shrink-0 text-primary" />
+                <MapPin className="w-4 h-4 shrink-0 text-accent" />
                 <span>Las Vegas, NV</span>
               </p>
               <p className="flex items-center gap-2 text-muted-foreground">
-                <Phone className="w-4 h-4 shrink-0 text-primary" />
+                <Phone className="w-4 h-4 shrink-0 text-accent" />
                 <span>(702) 609-5075</span>
               </p>
               <p className="flex items-center gap-2 text-muted-foreground">
-                <Mail className="w-4 h-4 shrink-0 text-primary" />
+                <Mail className="w-4 h-4 shrink-0 text-accent" />
                 <span>me@hectormendez.io</span>
               </p>
               <p className="flex items-center gap-2 text-muted-foreground">
-                <Globe className="w-4 h-4 shrink-0 text-primary" />
+                <Globe className="w-4 h-4 shrink-0 text-accent" />
                 <span>hectormendez.io</span>
               </p>
             </div>
@@ -98,7 +98,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="pt-8 border-t border-white/20 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-sm">
             &copy; {new Date().getFullYear()} Hector Mendez. All rights reserved.
           </p>

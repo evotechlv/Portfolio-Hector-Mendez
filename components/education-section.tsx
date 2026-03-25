@@ -32,13 +32,13 @@ const education = [
 
 export function EducationSection() {
   return (
-    <section id="education" className="py-24 px-4">
+    <section id="education" className="py-24 px-4 bg-background">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16 space-y-4">
-          <p className="text-primary font-medium tracking-wide uppercase text-sm">
+          <p className="text-accent font-semibold tracking-wide uppercase text-xs">
             Academic Background
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
             Education
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -50,24 +50,24 @@ export function EducationSection() {
           {education.map((edu, index) => (
             <div 
               key={index}
-              className={`bg-card border rounded-2xl p-6 lg:p-8 shadow-sm hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group ${
-                edu.featured ? 'border-primary/30 ring-1 ring-primary/10' : 'border-border hover:border-primary/20'
+              className={`glass rounded-2xl p-6 lg:p-8 shadow-sm hover:glass-xl hover:shadow-lg hover:shadow-accent/10 transition-all duration-300 group ${
+                edu.featured ? 'ring-1 ring-accent/20' : ''
               }`}
             >
               <div className="flex flex-col h-full">
                 {edu.featured && (
-                  <span className="text-[10px] px-2 py-0.5 bg-primary text-primary-foreground rounded-full w-fit mb-3 font-medium">
+                  <span className="text-[10px] px-2 py-0.5 bg-accent text-accent-foreground rounded-full w-fit mb-3 font-medium">
                     Primary Degree
                   </span>
                 )}
-                <div className="p-3 rounded-xl bg-primary/10 text-primary shrink-0 w-fit group-hover:scale-110 transition-transform duration-300 mb-4">
+                <div className="p-3 rounded-xl bg-accent/10 text-accent shrink-0 w-fit group-hover:scale-110 transition-transform duration-300 mb-4">
                   <edu.icon className="w-6 h-6" />
                 </div>
                 <div className="space-y-3 flex-1">
                   <h3 className="text-lg font-semibold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
                     {edu.degree}
                   </h3>
-                  <p className="text-primary font-medium text-sm">{edu.school}</p>
+                  <p className="text-accent font-medium text-sm">{edu.school}</p>
                   <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
                     <span className="flex items-center gap-1">
                       <MapPin className="w-3 h-3" />

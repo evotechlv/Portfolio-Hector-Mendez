@@ -8,7 +8,7 @@ const navLinks = [
   { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
   { href: "#skills", label: "Skills" },
-  { href: "#portfolio", label: "Portfolio" },
+  { href: "#projects", label: "Portfolio" },
   { href: "#education", label: "Education" },
 ]
 
@@ -30,7 +30,7 @@ export function Navigation() {
       <nav 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled 
-            ? "bg-card/70 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-black/10" 
+            ? "glass shadow-lg shadow-accent/5" 
             : "bg-transparent"
         }`}
       >
@@ -42,7 +42,7 @@ export function Navigation() {
               className="text-xl lg:text-2xl font-bold tracking-tight text-foreground"
               style={{ fontFamily: 'var(--font-display)' }}
             >
-              <span className="text-primary">HECTOR</span> MENDEZ
+              <span className="text-accent">HECTOR</span> MENDEZ
             </a>
 
             {/* Desktop Navigation */}
@@ -54,11 +54,11 @@ export function Navigation() {
                   className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
                 >
                   {link.label}
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary group-hover:w-4/5 transition-all duration-300" />
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-accent group-hover:w-4/5 transition-all duration-300" />
                 </a>
               ))}
               <Button 
-                className="ml-4 bg-primary hover:bg-primary/90 text-primary-foreground"
+                className="ml-4 bg-accent hover:bg-accent/90 text-accent-foreground rounded-full px-6"
                 size="sm"
               >
                 Contact
@@ -88,7 +88,7 @@ export function Navigation() {
           onClick={() => setIsMobileMenuOpen(false)}
         />
         <div 
-          className={`absolute top-16 left-4 right-4 bg-card/90 backdrop-blur-xl border border-border/50 rounded-2xl p-6 shadow-2xl transition-all duration-300 ${
+          className={`absolute top-16 left-4 right-4 glass rounded-2xl p-6 shadow-2xl transition-all duration-300 ${
             isMobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
           }`}
         >
@@ -98,13 +98,13 @@ export function Navigation() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="px-4 py-3 text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-colors font-medium"
+                className="px-4 py-3 text-foreground hover:text-accent hover:bg-accent/5 rounded-lg transition-colors font-medium"
               >
                 {link.label}
               </a>
             ))}
             <Button 
-              className="mt-4 bg-primary hover:bg-primary/90 text-primary-foreground w-full"
+              className="mt-4 bg-accent hover:bg-accent/90 text-accent-foreground w-full rounded-full"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Contact

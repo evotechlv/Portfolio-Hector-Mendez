@@ -15,12 +15,12 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: 'Hector Mendez | Construction Operations & Design Specialist',
-  description: 'Professional portfolio of Hector Mendez - Construction Operations & Design Specialist integrating hardware, software, and DevOps principles with construction expertise.',
+  description: 'iOS-inspired portfolio of Hector Mendez - Construction Operations & Design Specialist bridging hardware, software, and DevOps principles with construction expertise.',
   keywords: ['Construction Operations', 'Design Specialist', 'Software Engineer', 'Estimations', 'Las Vegas'],
 }
 
 export const viewport: Viewport = {
-  themeColor: '#1A1A1B',
+  themeColor: '#F2F2F7',
 }
 
 export default function RootLayout({
@@ -29,8 +29,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
+    <html lang="en">
+      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased bg-gradient-studio texture-paper`}>
         {children}
         <Analytics />
       </body>

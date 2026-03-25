@@ -61,13 +61,13 @@ const techProjects = [
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="py-24 px-4 bg-muted/20">
+    <section id="projects" className="py-24 px-4 bg-background">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 space-y-4">
-          <p className="text-primary font-medium tracking-wide uppercase text-sm">
+          <p className="text-accent font-semibold tracking-wide uppercase text-xs">
             Project Portfolio
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
             Featured Work
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -79,7 +79,7 @@ export function ProjectsSection() {
           {/* Construction Projects */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 rounded-lg bg-primary/10 text-primary">
+              <div className="p-2 rounded-lg bg-accent/10 text-accent">
                 <Building className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-semibold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
@@ -99,7 +99,7 @@ export function ProjectsSection() {
           {/* Tech Projects */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 rounded-lg bg-primary/10 text-primary">
+              <div className="p-2 rounded-lg bg-accent/10 text-accent">
                 <Cpu className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-semibold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
@@ -119,7 +119,7 @@ export function ProjectsSection() {
 
         {/* CTA */}
         <div className="mt-12 text-center">
-          <Button size="lg" className="gap-2 bg-primary hover:bg-primary/90 text-primary-foreground">
+          <Button size="lg" className="gap-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded-full px-8">
             <Box className="w-5 h-5" />
             Download Full Project List
           </Button>
@@ -132,8 +132,8 @@ export function ProjectsSection() {
 function ProjectCard({ project, featured = false }: { project: typeof constructionProjects[0]; featured?: boolean }) {
   return (
     <div
-      className={`group relative bg-card border rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 ${
-        featured ? 'border-primary/30 ring-1 ring-primary/10' : 'border-border hover:border-primary/20'
+      className={`group relative glass rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-accent/5 transition-all duration-300 ${
+        featured ? 'border-accent/30 ring-1 ring-accent/10 hover:glass-xl' : 'hover:glass-xl'
       }`}
     >
       {/* Project Image Placeholder */}
@@ -143,16 +143,16 @@ function ProjectCard({ project, featured = false }: { project: typeof constructi
           className="absolute inset-0 opacity-10"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(255,130,67,0.5) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,130,67,0.5) 1px, transparent 1px)
+              linear-gradient(rgba(0,122,255,0.5) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0,122,255,0.5) 1px, transparent 1px)
             `,
             backgroundSize: '20px 20px'
           }}
         />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center p-4">
-            <div className="w-14 h-14 mx-auto mb-2 rounded-xl bg-card/70 backdrop-blur-sm border border-border/50 flex items-center justify-center">
-              <span className="text-xl font-bold text-primary" style={{ fontFamily: 'var(--font-display)' }}>
+            <div className="w-14 h-14 mx-auto mb-2 rounded-xl glass-sm border-accent/30 flex items-center justify-center">
+              <span className="text-xl font-bold text-accent" style={{ fontFamily: 'var(--font-display)' }}>
                 {project.id.toString().padStart(2, '0')}
               </span>
             </div>
@@ -161,13 +161,13 @@ function ProjectCard({ project, featured = false }: { project: typeof constructi
         </div>
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-background/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
-          <Button size="sm" variant="secondary" className="gap-2" asChild>
+          <Button size="sm" variant="secondary" className="gap-2 rounded-full" asChild>
             <a href="#" target="_blank" rel="noopener noreferrer">
               <Github className="w-4 h-4" />
               Details
             </a>
           </Button>
-          <Button size="sm" className="gap-2 bg-primary hover:bg-primary/90 text-primary-foreground" asChild>
+          <Button size="sm" className="gap-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded-full" asChild>
             <a href="#" target="_blank" rel="noopener noreferrer">
               <ExternalLink className="w-4 h-4" />
               View
@@ -175,7 +175,7 @@ function ProjectCard({ project, featured = false }: { project: typeof constructi
           </Button>
         </div>
         {featured && (
-          <span className="absolute top-3 right-3 text-[10px] px-2 py-0.5 bg-primary text-primary-foreground rounded-full font-medium">
+          <span className="absolute top-3 right-3 text-[10px] px-2 py-0.5 bg-accent text-accent-foreground rounded-full font-medium">
             Featured
           </span>
         )}
@@ -193,7 +193,7 @@ function ProjectCard({ project, featured = false }: { project: typeof constructi
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="text-xs px-2 py-0.5 bg-muted text-muted-foreground rounded-md"
+              className="text-xs px-2 py-0.5 bg-accent/5 text-muted-foreground rounded-md"
             >
               {tag}
             </span>

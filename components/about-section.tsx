@@ -37,14 +37,14 @@ const expertiseCards = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 px-4 bg-muted/20">
+    <section id="about" className="py-24 px-4 bg-background">
       <div className="max-w-6xl mx-auto">
         {/* Profile Section */}
         <div className="max-w-4xl mx-auto text-center mb-16 space-y-6">
-          <p className="text-primary font-medium tracking-wide uppercase text-sm">
+          <p className="text-accent font-semibold tracking-wide uppercase text-xs">
             Profile
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
             The Master Builder
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
@@ -58,7 +58,7 @@ export function AboutSection() {
         {/* Core Construction Expertise Bento Grid */}
         <div className="space-y-6">
           <div className="text-center">
-            <p className="text-primary font-medium tracking-wide uppercase text-sm">
+            <p className="text-accent font-semibold tracking-wide uppercase text-xs">
               Core Construction Expertise
             </p>
           </div>
@@ -67,10 +67,10 @@ export function AboutSection() {
             {expertiseCards.map((card) => (
               <div 
                 key={card.title}
-                className="bg-card border border-border rounded-xl p-6 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group"
+                className="glass rounded-2xl p-6 hover:glass-xl hover:shadow-lg hover:shadow-accent/10 transition-all duration-300 group"
               >
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors shrink-0">
+                  <div className="p-3 rounded-xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors shrink-0">
                     <card.icon className="w-6 h-6" />
                   </div>
                   <div>
@@ -88,25 +88,25 @@ export function AboutSection() {
         </div>
 
         {/* Optimized Experience Bullets */}
-        <div className="mt-16 bg-card border border-border rounded-2xl p-8">
+        <div className="mt-16 glass rounded-2xl p-8">
           <h3 className="text-xl font-semibold text-foreground mb-6" style={{ fontFamily: 'var(--font-display)' }}>
             Key Accomplishments
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="space-y-2">
-              <p className="text-primary font-medium text-sm uppercase tracking-wider">Project Tracking & Logistics</p>
+              <p className="text-accent font-semibold text-sm uppercase tracking-wider">Project Tracking & Logistics</p>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Orchestrated complex overseas delivery schedules, maintaining 100% visibility on ETAs and warehouse inventory control.
               </p>
             </div>
             <div className="space-y-2">
-              <p className="text-primary font-medium text-sm uppercase tracking-wider">Financial Management</p>
+              <p className="text-accent font-semibold text-sm uppercase tracking-wider">Financial Management</p>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Executed comprehensive project estimations and financial POs for multi-trade builds, including electrical, drywall, and custom trim.
               </p>
             </div>
             <div className="space-y-2">
-              <p className="text-primary font-medium text-sm uppercase tracking-wider">Technical Design</p>
+              <p className="text-accent font-semibold text-sm uppercase tracking-wider">Technical Design</p>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Translated client needs into technical floor plans and detailed cabinet renderings using Adobe Creative Suite and SketchUp.
               </p>

@@ -65,13 +65,13 @@ export function ExperienceTimeline() {
   const [hoveredId, setHoveredId] = useState<number | null>(null)
 
   return (
-    <section id="experience" className="py-24 px-4">
+    <section id="experience" className="py-24 px-4 bg-background">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16 space-y-4">
-          <p className="text-primary font-medium tracking-wide uppercase text-sm">
+          <p className="text-accent font-semibold tracking-wide uppercase text-xs">
             Professional Timeline
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
             Career Journey
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -81,7 +81,7 @@ export function ExperienceTimeline() {
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-border" />
+          <div className="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent via-accent/50 to-border" />
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
@@ -94,8 +94,8 @@ export function ExperienceTimeline() {
                 onMouseLeave={() => setHoveredId(null)}
               >
                 {/* Timeline dot */}
-                <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-background border-2 border-primary z-10 flex items-center justify-center">
-                  <div className={`w-2 h-2 rounded-full bg-primary transition-transform duration-300 ${
+                <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-background border-2 border-accent z-10 flex items-center justify-center">
+                  <div className={`w-2 h-2 rounded-full bg-accent transition-transform duration-300 ${
                     hoveredId === exp.id ? 'scale-150' : 'scale-100'
                   }`} />
                 </div>
@@ -103,13 +103,13 @@ export function ExperienceTimeline() {
                 {/* Content */}
                 <div className={`flex-1 ml-12 md:ml-0 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
                   <div 
-                    className={`bg-card border border-border rounded-xl p-6 shadow-sm transition-all duration-300 ${
-                      hoveredId === exp.id ? 'shadow-lg shadow-primary/5 border-primary/30 -translate-y-1' : ''
+                    className={`glass rounded-2xl p-6 shadow-sm transition-all duration-300 ${
+                      hoveredId === exp.id ? 'shadow-lg shadow-accent/10 glass-xl' : ''
                     }`}
                   >
                     <div className="flex items-start gap-4">
                       <div className={`p-2.5 rounded-xl shrink-0 transition-colors ${
-                        hoveredId === exp.id ? 'bg-primary text-primary-foreground' : 'bg-primary/10 text-primary'
+                        hoveredId === exp.id ? 'bg-accent text-accent-foreground' : 'bg-accent/10 text-accent'
                       }`}>
                         <exp.icon className="w-5 h-5" />
                       </div>
@@ -118,7 +118,7 @@ export function ExperienceTimeline() {
                           <h3 className="font-semibold text-lg text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
                             {exp.role}
                           </h3>
-                          <span className="text-xs px-2 py-0.5 bg-primary/10 text-primary rounded-full font-medium">
+                          <span className="text-xs px-2 py-0.5 bg-accent/10 text-accent rounded-full font-medium">
                             {exp.period}
                           </span>
                         </div>
@@ -136,7 +136,7 @@ export function ExperienceTimeline() {
                           {exp.highlights.map((highlight) => (
                             <span 
                               key={highlight}
-                              className="text-xs px-2.5 py-1 bg-muted text-muted-foreground rounded-md"
+                              className="text-xs px-2.5 py-1 bg-accent/5 text-muted-foreground rounded-md"
                             >
                               {highlight}
                             </span>

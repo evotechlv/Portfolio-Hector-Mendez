@@ -58,13 +58,13 @@ const systemTools = [
 
 export function SkillsGrid() {
   return (
-    <section id="skills" className="py-24 px-4 bg-muted/20">
+    <section id="skills" className="py-24 px-4 bg-background">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 space-y-4">
-          <p className="text-primary font-medium tracking-wide uppercase text-sm">
+          <p className="text-accent font-semibold tracking-wide uppercase text-xs">
             Systems & Technical Stack
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
             The Digital Foundation
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -75,9 +75,9 @@ export function SkillsGrid() {
         {/* Main Skills Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Design Software */}
-          <div className="bg-card border border-border rounded-2xl p-6 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group">
+          <div className="glass rounded-2xl p-6 hover:glass-xl hover:shadow-lg hover:shadow-accent/10 transition-all duration-300 group">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+              <div className="p-3 rounded-xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
                 <Palette className="w-6 h-6" />
               </div>
               <div>
@@ -91,7 +91,7 @@ export function SkillsGrid() {
               {designTools.map((tool) => (
                 <span 
                   key={tool}
-                  className="text-sm px-3 py-1.5 bg-muted text-muted-foreground rounded-lg hover:bg-primary/10 hover:text-primary transition-colors"
+                  className="text-sm px-3 py-1.5 bg-accent/5 text-muted-foreground rounded-lg hover:bg-accent/10 hover:text-accent transition-colors"
                 >
                   {tool}
                 </span>
@@ -100,9 +100,9 @@ export function SkillsGrid() {
           </div>
 
           {/* Programming Languages */}
-          <div className="bg-card border border-border rounded-2xl p-6 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group">
+          <div className="glass rounded-2xl p-6 hover:glass-xl hover:shadow-lg hover:shadow-accent/10 transition-all duration-300 group">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+              <div className="p-3 rounded-xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
                 <Code2 className="w-6 h-6" />
               </div>
               <div>
@@ -116,7 +116,7 @@ export function SkillsGrid() {
               {devTools.map((tool) => (
                 <span 
                   key={tool}
-                  className="text-sm px-3 py-1.5 bg-muted text-muted-foreground rounded-lg hover:bg-primary/10 hover:text-primary transition-colors"
+                  className="text-sm px-3 py-1.5 bg-accent/5 text-muted-foreground rounded-lg hover:bg-accent/10 hover:text-accent transition-colors"
                 >
                   {tool}
                 </span>
@@ -125,9 +125,9 @@ export function SkillsGrid() {
           </div>
 
           {/* Database */}
-          <div className="bg-card border border-border rounded-2xl p-6 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group">
+          <div className="glass rounded-2xl p-6 hover:glass-xl hover:shadow-lg hover:shadow-accent/10 transition-all duration-300 group">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+              <div className="p-3 rounded-xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
                 <Database className="w-6 h-6" />
               </div>
               <div>
@@ -141,7 +141,7 @@ export function SkillsGrid() {
               {databaseTools.map((tool) => (
                 <span 
                   key={tool}
-                  className="text-sm px-3 py-1.5 bg-muted text-muted-foreground rounded-lg hover:bg-primary/10 hover:text-primary transition-colors"
+                  className="text-sm px-3 py-1.5 bg-accent/5 text-muted-foreground rounded-lg hover:bg-accent/10 hover:text-accent transition-colors"
                 >
                   {tool}
                 </span>
@@ -150,9 +150,9 @@ export function SkillsGrid() {
           </div>
 
           {/* Hardware & IT */}
-          <div className="bg-card border border-border rounded-2xl p-6 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group">
+          <div className="glass rounded-2xl p-6 hover:glass-xl hover:shadow-lg hover:shadow-accent/10 transition-all duration-300 group">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+              <div className="p-3 rounded-xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
                 <Cpu className="w-6 h-6" />
               </div>
               <div>
@@ -166,7 +166,7 @@ export function SkillsGrid() {
               {hardwareTools.map((tool) => (
                 <span 
                   key={tool}
-                  className="text-sm px-3 py-1.5 bg-muted text-muted-foreground rounded-lg hover:bg-primary/10 hover:text-primary transition-colors"
+                  className="text-sm px-3 py-1.5 bg-accent/5 text-muted-foreground rounded-lg hover:bg-accent/10 hover:text-accent transition-colors"
                 >
                   {tool}
                 </span>
@@ -175,9 +175,9 @@ export function SkillsGrid() {
           </div>
 
           {/* Systems & Office */}
-          <div className="bg-card border border-border rounded-2xl p-6 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group lg:col-span-2">
+          <div className="glass rounded-2xl p-6 hover:glass-xl hover:shadow-lg hover:shadow-accent/10 transition-all duration-300 group lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+              <div className="p-3 rounded-xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
                 <Monitor className="w-6 h-6" />
               </div>
               <div>
@@ -191,7 +191,7 @@ export function SkillsGrid() {
               {systemTools.map((tool) => (
                 <span 
                   key={tool}
-                  className="text-sm px-3 py-1.5 bg-muted text-muted-foreground rounded-lg hover:bg-primary/10 hover:text-primary transition-colors"
+                  className="text-sm px-3 py-1.5 bg-accent/5 text-muted-foreground rounded-lg hover:bg-accent/10 hover:text-accent transition-colors"
                 >
                   {tool}
                 </span>
@@ -201,7 +201,7 @@ export function SkillsGrid() {
         </div>
 
         {/* Soft Skills */}
-        <div className="mt-8 bg-card border border-border rounded-2xl p-6">
+        <div className="mt-8 glass rounded-2xl p-6">
           <h3 className="text-lg font-semibold text-foreground mb-4" style={{ fontFamily: 'var(--font-display)' }}>
             Soft Skills
           </h3>
@@ -209,7 +209,7 @@ export function SkillsGrid() {
             {["Analytical Thinking", "Creativity", "Teamwork", "Diligence", "Proactiveness", "Leadership", "Self-Learner (Autodidact)"].map((skill) => (
               <span 
                 key={skill}
-                className="text-sm px-4 py-2 bg-primary/10 text-primary rounded-full font-medium"
+                className="text-sm px-4 py-2 bg-accent/10 text-accent rounded-full font-medium"
               >
                 {skill}
               </span>
@@ -219,20 +219,20 @@ export function SkillsGrid() {
 
         {/* Stats Row */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-          <div className="bg-card border border-border rounded-xl p-6 text-center hover:border-primary/30 transition-colors duration-300">
-            <p className="text-3xl lg:text-4xl font-bold text-primary" style={{ fontFamily: 'var(--font-display)' }}>15+</p>
+          <div className="glass rounded-2xl p-6 text-center hover:glass-xl transition-all duration-300">
+            <p className="text-3xl lg:text-4xl font-bold text-accent" style={{ fontFamily: 'var(--font-display)' }}>15+</p>
             <p className="text-sm text-muted-foreground mt-1">Years Experience</p>
           </div>
-          <div className="bg-card border border-border rounded-xl p-6 text-center hover:border-primary/30 transition-colors duration-300">
-            <p className="text-3xl lg:text-4xl font-bold text-primary" style={{ fontFamily: 'var(--font-display)' }}>8</p>
+          <div className="glass rounded-2xl p-6 text-center hover:glass-xl transition-all duration-300">
+            <p className="text-3xl lg:text-4xl font-bold text-accent" style={{ fontFamily: 'var(--font-display)' }}>8</p>
             <p className="text-sm text-muted-foreground mt-1">Programming Languages</p>
           </div>
-          <div className="bg-card border border-border rounded-xl p-6 text-center hover:border-primary/30 transition-colors duration-300">
-            <p className="text-3xl lg:text-4xl font-bold text-primary" style={{ fontFamily: 'var(--font-display)' }}>$80K</p>
+          <div className="glass rounded-2xl p-6 text-center hover:glass-xl transition-all duration-300">
+            <p className="text-3xl lg:text-4xl font-bold text-accent" style={{ fontFamily: 'var(--font-display)' }}>$80K</p>
             <p className="text-sm text-muted-foreground mt-1">Business Grown</p>
           </div>
-          <div className="bg-card border border-border rounded-xl p-6 text-center hover:border-primary/30 transition-colors duration-300">
-            <p className="text-3xl lg:text-4xl font-bold text-primary" style={{ fontFamily: 'var(--font-display)' }}>3</p>
+          <div className="glass rounded-2xl p-6 text-center hover:glass-xl transition-all duration-300">
+            <p className="text-3xl lg:text-4xl font-bold text-accent" style={{ fontFamily: 'var(--font-display)' }}>3</p>
             <p className="text-sm text-muted-foreground mt-1">Degrees</p>
           </div>
         </div>

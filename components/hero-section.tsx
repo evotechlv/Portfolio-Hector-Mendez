@@ -6,39 +6,39 @@ import { Button } from "@/components/ui/button"
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20">
-      {/* Blueprint background with architectural grid */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent/3" />
       
-      {/* Blueprint-style grid pattern - architectural lines */}
+      {/* Soft architectural grid pattern */}
       <div 
-        className="absolute inset-0 opacity-[0.06]"
+        className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(255,130,67,0.4) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,130,67,0.4) 1px, transparent 1px),
-            linear-gradient(rgba(255,130,67,0.2) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,130,67,0.2) 1px, transparent 1px)
+            linear-gradient(rgba(0,122,255,0.3) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,122,255,0.3) 1px, transparent 1px),
+            linear-gradient(rgba(0,122,255,0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,122,255,0.1) 1px, transparent 1px)
           `,
           backgroundSize: '100px 100px, 100px 100px, 20px 20px, 20px 20px'
         }}
       />
       
-      {/* Decorative architectural elements */}
-      <div className="absolute top-20 right-10 w-32 h-32 border border-primary/10 rotate-45 hidden lg:block" />
-      <div className="absolute bottom-32 left-16 w-24 h-24 border border-primary/5 hidden lg:block" />
+      {/* Decorative glass elements */}
+      <div className="absolute top-32 right-12 w-40 h-40 glass-sm rounded-3xl opacity-30 hidden lg:block" />
+      <div className="absolute bottom-40 left-12 w-32 h-32 glass-sm rounded-3xl opacity-20 hidden lg:block" />
 
       <div className="relative z-10 max-w-6xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Typography */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <p className="text-primary font-medium tracking-wide uppercase text-sm">
+              <p className="text-accent font-semibold tracking-wide uppercase text-xs">
                 Construction Operations & Design Specialist
               </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-[1.1] tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
-                <span className="text-balance">Hector Mendez:</span>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
+                <span className="text-balance">Hector Mendez</span>
                 <br />
-                <span className="text-primary text-balance">Precision in Construction & Digital Design</span>
+                <span className="text-accent text-balance">Precision in Construction & Digital Design</span>
               </h1>
             </div>
             <p className="text-muted-foreground text-lg max-w-lg leading-relaxed">
@@ -54,10 +54,10 @@ export function HeroSection() {
             
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4">
-              <Button className="gap-2 bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Button className="gap-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded-full px-6">
                 Request an Estimation
               </Button>
-              <Button variant="outline" className="gap-2 border-primary/30 hover:bg-primary/10 hover:border-primary/50">
+              <Button variant="outline" className="gap-2 border-muted hover:bg-muted/50 hover:border-muted rounded-full px-6">
                 Download Full Project List
               </Button>
             </div>
@@ -67,24 +67,24 @@ export function HeroSection() {
           <div className="flex justify-center lg:justify-end">
             <div className="relative group">
               {/* Glow effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 via-primary/20 to-primary/30 rounded-3xl blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-accent/20 via-accent/10 to-accent/20 rounded-3xl blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
               
-              {/* Main card */}
-              <div className="relative bg-card/80 backdrop-blur-xl border border-border/50 rounded-2xl p-8 shadow-2xl shadow-primary/5 transform hover:scale-[1.02] transition-all duration-300">
-                {/* Decorative blueprint corners */}
-                <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary/30 rounded-tl-lg" />
-                <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-primary/30 rounded-tr-lg" />
-                <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-primary/30 rounded-bl-lg" />
-                <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary/30 rounded-br-lg" />
+              {/* Main card with glass effect */}
+              <div className="relative glass-xl rounded-3xl p-8 transform hover:scale-[1.02] transition-all duration-300 w-full max-w-sm">
+                {/* Subtle corner accents */}
+                <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-accent/20 rounded-tl-2xl" />
+                <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-accent/20 rounded-tr-2xl" />
+                <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-accent/20 rounded-bl-2xl" />
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-accent/20 rounded-br-2xl" />
                 
                 <div className="relative space-y-6">
                   {/* Avatar */}
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 border-2 border-primary/30 flex items-center justify-center mx-auto">
-                    <span className="text-3xl font-bold text-primary" style={{ fontFamily: 'var(--font-display)' }}>HM</span>
+                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-accent/15 to-accent/5 border-2 border-accent/20 flex items-center justify-center mx-auto">
+                    <span className="text-3xl font-bold text-accent" style={{ fontFamily: 'var(--font-display)' }}>HM</span>
                   </div>
                   
                   <div className="text-center space-y-2">
-                    <h2 className="text-xl font-semibold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+                    <h2 className="text-2xl font-semibold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
                       Connect with Me
                     </h2>
                     <p className="text-sm text-muted-foreground">
@@ -94,7 +94,7 @@ export function HeroSection() {
 
                   <div className="space-y-3">
                     <Button 
-                      className="w-full gap-2 bg-primary hover:bg-primary/90 text-primary-foreground"
+                      className="w-full gap-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded-full"
                       asChild
                     >
                       <a href="mailto:me@hectormendez.io">
@@ -105,7 +105,7 @@ export function HeroSection() {
                     
                     {/* LinkedIn - Hire Me CTA */}
                     <Button 
-                      className="w-full gap-2 bg-[#0A66C2] hover:bg-[#0A66C2]/90 text-white"
+                      className="w-full gap-2 bg-[#0A66C2] hover:bg-[#0A66C2]/90 text-white rounded-full"
                       asChild
                     >
                       <a href="https://linkedin.com/in/hectormendez" target="_blank" rel="noopener noreferrer">
@@ -114,10 +114,10 @@ export function HeroSection() {
                       </a>
                     </Button>
                     
-                    {/* GitHub - Active Contributor Badge */}
+                    {/* GitHub */}
                     <Button 
                       variant="outline" 
-                      className="w-full gap-2 border-border hover:bg-muted hover:border-primary/40 relative"
+                      className="w-full gap-2 border-muted/50 hover:bg-muted/30 hover:border-muted rounded-full relative"
                       asChild
                     >
                       <a href="https://github.com/hectormendez" target="_blank" rel="noopener noreferrer">
@@ -132,7 +132,7 @@ export function HeroSection() {
                     {/* Website */}
                     <Button 
                       variant="outline" 
-                      className="w-full gap-2 border-border hover:bg-muted hover:border-primary/40"
+                      className="w-full gap-2 border-muted/50 hover:bg-muted/30 hover:border-muted rounded-full"
                       asChild
                     >
                       <a href="https://hectormendez.io" target="_blank" rel="noopener noreferrer">
