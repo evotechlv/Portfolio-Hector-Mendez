@@ -5,29 +5,22 @@
 
 :root {
   /* iOS Studio White Theme - Light Mode */
-  /* Primary Background: System Gray 6 (#F2F2F7) */
   --background: oklch(0.9765 0.002 264);
   --foreground: oklch(0.11 0.008 264);
-  /* Glass & Cards: Ultra-Light Material with backdrop blur */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.11 0.008 264);
   --popover: oklch(0.99 0.002 264);
   --popover-foreground: oklch(0.11 0.008 264);
-  /* Vibrant Azure (#007AFF) for interactive elements */
   --primary: oklch(0.512 0.213 264.64);
   --primary-foreground: oklch(1 0 0);
-  /* Secondary: Softer blue-gray */
   --secondary: oklch(0.94 0.004 264);
   --secondary-foreground: oklch(0.11 0.008 264);
-  /* Muted: Light gray for secondary elements */
   --muted: oklch(0.95 0.002 264);
   --muted-foreground: oklch(0.50 0.008 264);
-  /* Accent: Same as primary - Vibrant Azure */
   --accent: oklch(0.512 0.213 264.64);
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.62 0.25 29.2);
   --destructive-foreground: oklch(1 0 0);
-  /* Borders: Subtle gray */
   --border: oklch(0.92 0.002 264);
   --input: oklch(0.98 0.002 264);
   --ring: oklch(0.512 0.213 264.64);
@@ -45,20 +38,15 @@
   --sidebar-accent-foreground: oklch(0.11 0.008 264);
   --sidebar-border: oklch(0.92 0.002 264);
   --sidebar-ring: oklch(0.512 0.213 264.64);
-  /* Glass effect opacity */
-  --glass-opacity: 0.8;
-  --glass-blur: 30px;
 }
 
 .dark {
-  /* Dark Mode - Deep with blue accents */
   --background: oklch(0.12 0.01 260);
   --foreground: oklch(0.96 0.005 260);
   --card: oklch(0.18 0.01 260);
   --card-foreground: oklch(0.96 0.005 260);
   --popover: oklch(0.18 0.01 260);
   --popover-foreground: oklch(0.96 0.005 260);
-  /* Azure accent for dark mode */
   --primary: oklch(0.60 0.20 264.64);
   --primary-foreground: oklch(0.12 0.01 260);
   --secondary: oklch(0.28 0.01 260);
@@ -138,46 +126,76 @@
   }
 }
 
-/* Enhanced Crystal Glass Morphism */
 @layer components {
-  /* Crystal glass with inner glow effect */
-  .glass-crystal {
-    @apply relative bg-white/75 dark:bg-slate-900/50 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-xl;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(0, 0, 0, 0.1), 0 20px 60px rgba(0, 0, 0, 0.08);
-  }
-
-  .glass-crystal-sm {
-    @apply relative bg-white/60 dark:bg-slate-900/40 backdrop-blur-xl border border-white/30 dark:border-white/5;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 10px 30px rgba(0, 0, 0, 0.05);
-  }
-
-  .glass-crystal-lg {
-    @apply relative bg-white/85 dark:bg-slate-900/60 backdrop-blur-3xl border border-white/50 dark:border-white/15 shadow-2xl;
-    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.6), inset 0 -2px 0 rgba(0, 0, 0, 0.05), 0 30px 80px rgba(0, 0, 0, 0.12);
-  }
-
-  /* Frosted crystal texture */
-  .frosted-crystal {
-    background-image: 
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' seed='1' /%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
-  }
-
-  /* Legacy glass support (for existing components) */
   .glass {
-    @apply relative bg-white/60 dark:bg-slate-900/40 backdrop-blur-xl border border-white/30 dark:border-white/5;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 10px 30px rgba(0, 0, 0, 0.05);
+    @apply bg-white/80 dark:bg-slate-900/50 backdrop-blur-lg border border-white/20 dark:border-white/10 shadow-lg;
   }
   
   .glass-sm {
-    @apply bg-white/60 dark:bg-slate-900/40 backdrop-blur-lg border border-white/20 dark:border-white/5;
+    @apply bg-white/60 dark:bg-slate-900/40 backdrop-blur-sm border border-white/10 dark:border-white/5;
   }
   
   .glass-xl {
-    @apply relative bg-white/85 dark:bg-slate-900/60 backdrop-blur-3xl border border-white/50 dark:border-white/15 shadow-2xl;
-    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.6), inset 0 -2px 0 rgba(0, 0, 0, 0.05), 0 30px 80px rgba(0, 0, 0, 0.12);
+    @apply bg-white/90 dark:bg-slate-900/60 backdrop-blur-xl border border-white/30 dark:border-white/15 shadow-2xl;
   }
 
-  /* Blueprint grid animation - very subtle */
+  .texture-paper {
+    background-image: 
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.01) 2px,
+        rgba(0, 0, 0, 0.01) 4px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.01) 2px,
+        rgba(0, 0, 0, 0.01) 4px
+      );
+  }
+
+  .bg-gradient-studio {
+    background: linear-gradient(135deg, #F2F2F7 0%, #FFFFFF 100%);
+  }
+
+  .bg-gradient-dark {
+    background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+  }
+
+  .pulse-available {
+    @apply relative flex h-3 w-3 rounded-full;
+  }
+
+  .pulse-available::before {
+    @apply absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .pulse-available::after {
+    @apply relative inline-flex rounded-full h-3 w-3 bg-green-500;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes drift {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(60px, 60px);
+    }
+  }
+
   .blueprint-grid {
     position: relative;
     overflow: hidden;
@@ -203,67 +221,6 @@
     animation: drift 20s linear infinite;
   }
 
-  @keyframes drift {
-    0% {
-      transform: translate(0, 0);
-    }
-    100% {
-      transform: translate(60px, 60px);
-    }
-  }
-
-  /* Paper texture overlay */
-  .texture-paper {
-    background-image: 
-      repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 2px,
-        rgba(0, 0, 0, 0.01) 2px,
-        rgba(0, 0, 0, 0.01) 4px
-      ),
-      repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 2px,
-        rgba(0, 0, 0, 0.01) 2px,
-        rgba(0, 0, 0, 0.01) 4px
-      );
-  }
-
-  /* Gradient backgrounds */
-  .bg-gradient-studio {
-    background: linear-gradient(135deg, #F2F2F7 0%, #FFFFFF 100%);
-  }
-
-  .bg-gradient-dark {
-    background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
-  }
-
-  /* Availability pulse indicator */
-  .pulse-available {
-    @apply relative flex h-3 w-3 rounded-full;
-  }
-
-  .pulse-available::before {
-    @apply absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75;
-    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  .pulse-available::after {
-    @apply relative inline-flex rounded-full h-3 w-3 bg-green-500;
-  }
-
-  @keyframes pulse {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
-  }
-
-  /* Shimmer effect for buttons */
   .shimmer-button {
     position: relative;
     overflow: hidden;
@@ -286,6 +243,15 @@
     pointer-events: none;
   }
 
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
   @keyframes scrollIn {
     from {
       opacity: 0;
@@ -297,29 +263,6 @@
     }
   }
 
-  @keyframes scrollUp {
-    from {
-      opacity: 0;
-      transform: translateY(60px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes fadeInScale {
-    from {
-      opacity: 0;
-      transform: scale(0.95);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  /* Scroll reveal animation - add to elements for fade-in-on-scroll effect */
   .scroll-reveal {
     animation: scrollIn 0.8s ease-out forwards;
     opacity: 0;
@@ -331,3 +274,4 @@
   .scroll-reveal-stagger:nth-child(4) { animation-delay: 0.4s; }
   .scroll-reveal-stagger:nth-child(5) { animation-delay: 0.5s; }
 }
+

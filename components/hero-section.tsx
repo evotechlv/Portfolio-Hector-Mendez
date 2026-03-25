@@ -22,15 +22,15 @@ export function HeroSection() {
       }} />
       
       {/* Decorative glass elements with blur */}
-      <div className="absolute top-32 right-12 w-56 h-56 glass-crystal-sm rounded-full opacity-20 hidden lg:block blur-3xl" />
-      <div className="absolute bottom-40 left-12 w-48 h-48 glass-crystal-sm rounded-full opacity-15 hidden lg:block blur-3xl" />
+      <div className="absolute top-32 right-12 w-56 h-56 glass-sm rounded-full opacity-20 hidden lg:block blur-3xl" />
+      <div className="absolute bottom-40 left-12 w-48 h-48 glass-sm rounded-full opacity-15 hidden lg:block blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: Premium Typography */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-crystal-sm">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-sm">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                 <p className="text-sm font-medium text-muted-foreground">Available for Projects</p>
               </div>
@@ -87,7 +87,7 @@ export function HeroSection() {
               <div className="absolute -inset-1 bg-gradient-to-r from-accent/30 via-accent/20 to-accent/30 rounded-[2.5rem] blur-3xl opacity-30 group-hover:opacity-50 transition-opacity duration-700 animate-pulse" />
               
               {/* Crystal glass card */}
-              <div className="relative glass-crystal-lg rounded-[2.5rem] p-8 lg:p-10 transform group-hover:scale-[1.02] transition-all duration-500 space-y-8">
+              <div className="relative glass-xl rounded-[2.5rem] p-8 lg:p-10 transform group-hover:scale-[1.02] transition-all duration-500 space-y-8">
                 {/* Premium Avatar */}
                 <div className="flex justify-center">
                   <div className="relative w-32 h-32">
