@@ -47,7 +47,44 @@
   --sidebar-ring: oklch(0.512 0.213 264.64);
   /* Glass effect opacity */
   --glass-opacity: 0.8;
-  --glass-blur: 20px;
+  --glass-blur: 30px;
+}
+
+.dark {
+  /* Dark Mode - Deep with blue accents */
+  --background: oklch(0.12 0.01 260);
+  --foreground: oklch(0.96 0.005 260);
+  --card: oklch(0.18 0.01 260);
+  --card-foreground: oklch(0.96 0.005 260);
+  --popover: oklch(0.18 0.01 260);
+  --popover-foreground: oklch(0.96 0.005 260);
+  /* Azure accent for dark mode */
+  --primary: oklch(0.60 0.20 264.64);
+  --primary-foreground: oklch(0.12 0.01 260);
+  --secondary: oklch(0.28 0.01 260);
+  --secondary-foreground: oklch(0.96 0.005 260);
+  --muted: oklch(0.22 0.008 260);
+  --muted-foreground: oklch(0.65 0.008 260);
+  --accent: oklch(0.60 0.20 264.64);
+  --accent-foreground: oklch(0.12 0.01 260);
+  --destructive: oklch(0.60 0.22 25);
+  --destructive-foreground: oklch(0.96 0.005 260);
+  --border: oklch(0.28 0.01 260);
+  --input: oklch(0.28 0.01 260);
+  --ring: oklch(0.60 0.20 264.64);
+  --chart-1: oklch(0.60 0.20 264.64);
+  --chart-2: oklch(0.55 0.15 200);
+  --chart-3: oklch(0.65 0.12 150);
+  --chart-4: oklch(0.58 0.18 280);
+  --chart-5: oklch(0.70 0.15 60);
+  --sidebar: oklch(0.12 0.01 260);
+  --sidebar-foreground: oklch(0.96 0.005 260);
+  --sidebar-primary: oklch(0.60 0.20 264.64);
+  --sidebar-primary-foreground: oklch(0.12 0.01 260);
+  --sidebar-accent: oklch(0.22 0.01 260);
+  --sidebar-accent-foreground: oklch(0.96 0.005 260);
+  --sidebar-border: oklch(0.28 0.01 260);
+  --sidebar-ring: oklch(0.60 0.20 264.64);
 }
 
 @theme inline {
@@ -97,25 +134,83 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-colors duration-300;
   }
 }
 
-/* Glass morphism effect utilities */
+/* Enhanced Crystal Glass Morphism */
 @layer components {
+  /* Crystal glass with inner glow effect */
+  .glass-crystal {
+    @apply relative bg-white/75 dark:bg-slate-900/50 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-xl;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(0, 0, 0, 0.1), 0 20px 60px rgba(0, 0, 0, 0.08);
+  }
+
+  .glass-crystal-sm {
+    @apply relative bg-white/60 dark:bg-slate-900/40 backdrop-blur-xl border border-white/30 dark:border-white/5;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 10px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  .glass-crystal-lg {
+    @apply relative bg-white/85 dark:bg-slate-900/60 backdrop-blur-3xl border border-white/50 dark:border-white/15 shadow-2xl;
+    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.6), inset 0 -2px 0 rgba(0, 0, 0, 0.05), 0 30px 80px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Frosted crystal texture */
+  .frosted-crystal {
+    background-image: 
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' seed='1' /%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+
+  /* Legacy glass support (for existing components) */
   .glass {
-    @apply bg-white/80 backdrop-blur-lg border border-white/20;
+    @apply glass-crystal-sm;
   }
   
   .glass-sm {
-    @apply bg-white/60 backdrop-blur-sm border border-white/10;
+    @apply bg-white/60 dark:bg-slate-900/40 backdrop-blur-lg border border-white/20 dark:border-white/5;
   }
   
   .glass-xl {
-    @apply bg-white/90 backdrop-blur-xl border border-white/30;
+    @apply glass-crystal-lg;
   }
 
-  /* Subtle texture overlay for Paper effect */
+  /* Blueprint grid animation - very subtle */
+  .blueprint-grid {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .blueprint-grid::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(
+        rgba(0, 122, 255, 0.03) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(0, 122, 255, 0.03) 1px,
+        transparent 1px
+      );
+    background-size: 60px 60px;
+    pointer-events: none;
+    opacity: 0.5;
+    animation: drift 20s linear infinite;
+  }
+
+  @keyframes drift {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(60px, 60px);
+    }
+  }
+
+  /* Paper texture overlay */
   .texture-paper {
     background-image: 
       repeating-linear-gradient(
@@ -134,8 +229,103 @@
       );
   }
 
-  /* Subtle gradient background */
+  /* Gradient backgrounds */
   .bg-gradient-studio {
     background: linear-gradient(135deg, #F2F2F7 0%, #FFFFFF 100%);
   }
+
+  .bg-gradient-dark {
+    background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+  }
+
+  /* Availability pulse indicator */
+  .pulse-available {
+    @apply relative flex h-3 w-3 rounded-full;
+  }
+
+  .pulse-available::before {
+    @apply absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .pulse-available::after {
+    @apply relative inline-flex rounded-full h-3 w-3 bg-green-500;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  /* Shimmer effect for buttons */
+  .shimmer-button {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    animation: shimmer 3s infinite;
+    pointer-events: none;
+  }
+
+  @keyframes scrollIn {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scrollUp {
+    from {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Scroll reveal animation - add to elements for fade-in-on-scroll effect */
+  .scroll-reveal {
+    animation: scrollIn 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .scroll-reveal-stagger:nth-child(1) { animation-delay: 0.1s; }
+  .scroll-reveal-stagger:nth-child(2) { animation-delay: 0.2s; }
+  .scroll-reveal-stagger:nth-child(3) { animation-delay: 0.3s; }
+  .scroll-reveal-stagger:nth-child(4) { animation-delay: 0.4s; }
+  .scroll-reveal-stagger:nth-child(5) { animation-delay: 0.5s; }
 }
