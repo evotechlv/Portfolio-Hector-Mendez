@@ -4,50 +4,181 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* iOS Studio White Theme - Light Mode */
-  /* Primary Background: System Gray 6 (#F2F2F7) */
-  --background: oklch(0.9765 0.002 264);
-  --foreground: oklch(0.11 0.008 264);
-  /* Glass & Cards: Ultra-Light Material with backdrop blur */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.11 0.008 264);
-  --popover: oklch(0.99 0.002 264);
-  --popover-foreground: oklch(0.11 0.008 264);
-  /* Vibrant Azure (#007AFF) for interactive elements */
-  --primary: oklch(0.512 0.213 264.64);
-  --primary-foreground: oklch(1 0 0);
-  /* Secondary: Softer blue-gray */
-  --secondary: oklch(0.94 0.004 264);
-  --secondary-foreground: oklch(0.11 0.008 264);
-  /* Muted: Light gray for secondary elements */
-  --muted: oklch(0.95 0.002 264);
-  --muted-foreground: oklch(0.50 0.008 264);
-  /* Accent: Same as primary - Vibrant Azure */
-  --accent: oklch(0.512 0.213 264.64);
-  --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.62 0.25 29.2);
-  --destructive-foreground: oklch(1 0 0);
-  /* Borders: Subtle gray */
-  --border: oklch(0.92 0.002 264);
-  --input: oklch(0.98 0.002 264);
-  --ring: oklch(0.512 0.213 264.64);
-  --chart-1: oklch(0.512 0.213 264.64);
-  --chart-2: oklch(0.55 0.12 200);
-  --chart-3: oklch(0.65 0.10 150);
-  --chart-4: oklch(0.58 0.15 280);
-  --chart-5: oklch(0.70 0.12 60);
+  --background: #F5F5F7;
+  --foreground: #1D1D1F;
+  --card: #FFFFFF;
+  --card-foreground: #1D1D1F;
+  --popover: #FFFFFF;
+  --popover-foreground: #1D1D1F;
+  --primary: #007AFF;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F5F5F7;
+  --secondary-foreground: #1D1D1F;
+  --muted: #E8E8ED;
+  --muted-foreground: #86868B;
+  --accent: #007AFF;
+  --accent-foreground: #FFFFFF;
+  --destructive: #FF3B30;
+  --destructive-foreground: #FFFFFF;
+  --border: #E5E5EA;
+  --input: #FFFFFF;
+  --ring: #007AFF;
+  --chart-1: #007AFF;
+  --chart-2: #34C759;
+  --chart-3: #FF9500;
+  --chart-4: #FF2D55;
+  --chart-5: #A2845E;
   --radius: 1.5rem;
-  --sidebar: oklch(0.9765 0.002 264);
-  --sidebar-foreground: oklch(0.11 0.008 264);
-  --sidebar-primary: oklch(0.512 0.213 264.64);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.98 0.002 264);
-  --sidebar-accent-foreground: oklch(0.11 0.008 264);
-  --sidebar-border: oklch(0.92 0.002 264);
-  --sidebar-ring: oklch(0.512 0.213 264.64);
-  /* Glass effect opacity */
-  --glass-opacity: 0.8;
-  --glass-blur: 30px;
+}
+
+.dark {
+  --background: #0A0A0B;
+  --foreground: #F5F5F7;
+  --card: #1C1C1E;
+  --card-foreground: #F5F5F7;
+  --popover: #1C1C1E;
+  --popover-foreground: #F5F5F7;
+  --primary: #0A84FF;
+  --primary-foreground: #000000;
+  --secondary: #2C2C2E;
+  --secondary-foreground: #F5F5F7;
+  --muted: #3A3A3C;
+  --muted-foreground: #8E8E93;
+  --accent: #0A84FF;
+  --accent-foreground: #000000;
+  --destructive: #FF453A;
+  --destructive-foreground: #FFFFFF;
+  --border: #424245;
+  --input: #1C1C1E;
+  --ring: #0A84FF;
+  --chart-1: #0A84FF;
+  --chart-2: #30B0C0;
+  --chart-3: #FF9500;
+  --chart-4: #FF2D55;
+  --chart-5: #A2845E;
+}
+
+@theme inline {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Crystal Card - Glassmorphism effect */
+  .crystal-card {
+    @apply relative bg-white/40 dark:bg-white/5 backdrop-blur-3xl border border-white/60 dark:border-white/10 rounded-3xl;
+  }
+}
+
+@layer components {
+  /* Crystal Card - Glassmorphism effect */
+  .crystal-card {
+    @apply relative bg-white/40 dark:bg-white/5 backdrop-blur-3xl border border-white/60 dark:border-white/10 rounded-3xl;
+  }
+
+  /* Paper texture overlay */
+  .texture-paper {
+    background-image: 
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='6' result='noise'/%3E%3C/filter%3E%3Crect width='100' height='100' fill='%23f5f5f7' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  /* Blueprint grid - fixed background */
+  .blueprint-grid {
+    background-image: 
+      linear-gradient(rgba(0, 122, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 122, 255, 0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    background-attachment: fixed;
+  }
+
+  .dark .blueprint-grid {
+    background-image: 
+      linear-gradient(rgba(10, 132, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(10, 132, 255, 0.08) 1px, transparent 1px);
+  }
+
+  /* Scroll reveal animation */
+  @keyframes scrollReveal {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .scroll-reveal {
+    animation: scrollReveal 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  /* Stagger delays */
+  .scroll-reveal-0 { animation-delay: 0s; }
+  .scroll-reveal-1 { animation-delay: 0.1s; }
+  .scroll-reveal-2 { animation-delay: 0.2s; }
+  .scroll-reveal-3 { animation-delay: 0.3s; }
+
+  /* 3D tilt effect on hover */
+  @keyframes tilt {
+    0%, 100% { transform: perspective(1000px) rotateX(0) rotateY(0); }
+    50% { transform: perspective(1000px) rotateX(-2deg) rotateY(2deg); }
+  }
+
+  .hover-tilt {
+    transition: all 0.3s ease-out;
+  }
+
+  .hover-tilt:hover {
+    transform: perspective(1000px) rotateX(-2deg) rotateY(2deg);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  }
+
+  .dark .hover-tilt:hover {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Shimmer effect */
+  @keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+  }
+
+  /* Blob animation */
+  @keyframes blob {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+  }
+
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
 }
 
 .dark {
