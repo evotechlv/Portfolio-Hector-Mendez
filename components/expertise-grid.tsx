@@ -22,7 +22,7 @@ export function ExpertiseGrid() {
         {/* Bento Grid - 3 Large Cards */}
         <div className="grid lg:grid-cols-3 gap-6 mb-6">
           {/* Global Operations & Logistics */}
-          <div className="group lg:col-span-1 glass-xl rounded-3xl p-8 overflow-hidden cursor-pointer hover:shadow-2xl hover:shadow-accent/15 transition-all duration-500">
+          <div className="group lg:col-span-1 glass-crystal-lg rounded-3xl p-8 overflow-hidden cursor-pointer hover:shadow-2xl hover:shadow-accent/15 transition-all duration-500">
             <div className="relative space-y-6">
               <div className="p-4 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 w-fit group-hover:scale-110 transition-transform duration-300">
                 <Globe className="w-8 h-8 text-accent" />
@@ -54,7 +54,7 @@ export function ExpertiseGrid() {
           </div>
 
           {/* Financial & Estimations */}
-          <div className="group lg:col-span-1 glass-xl rounded-3xl p-8 overflow-hidden cursor-pointer hover:shadow-2xl hover:shadow-accent/15 transition-all duration-500">
+          <div className="group lg:col-span-1 glass-crystal-lg rounded-3xl p-8 overflow-hidden cursor-pointer hover:shadow-2xl hover:shadow-accent/15 transition-all duration-500">
             <div className="relative space-y-6">
               <div className="p-4 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 w-fit group-hover:scale-110 transition-transform duration-300">
                 <DollarSign className="w-8 h-8 text-accent" />
@@ -86,7 +86,7 @@ export function ExpertiseGrid() {
           </div>
 
           {/* Design & Visualization */}
-          <div className="group lg:col-span-1 glass-xl rounded-3xl p-8 overflow-hidden cursor-pointer hover:shadow-2xl hover:shadow-accent/15 transition-all duration-500">
+          <div className="group lg:col-span-1 glass-crystal-lg rounded-3xl p-8 overflow-hidden cursor-pointer hover:shadow-2xl hover:shadow-accent/15 transition-all duration-500">
             <div className="relative space-y-6">
               <div className="p-4 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 w-fit group-hover:scale-110 transition-transform duration-300">
                 <Pencil className="w-8 h-8 text-accent" />
@@ -126,7 +126,7 @@ export function ExpertiseGrid() {
             { label: "Budget Managed", value: "$10M+" },
             { label: "Efficiency Gain", value: "40%" }
           ].map((stat) => (
-            <div key={stat.label} className="glass rounded-2xl p-6 text-center hover:shadow-lg hover:shadow-accent/10 hover:scale-105 transition-all duration-300">
+            <div key={stat.label} className="glass-crystal rounded-2xl p-6 text-center hover:glass-crystal-lg transition-all duration-300">
               <p className="text-3xl font-bold text-accent mb-2" style={{ fontFamily: 'var(--font-display)' }}>
                 {stat.value}
               </p>

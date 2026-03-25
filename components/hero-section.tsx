@@ -22,15 +22,15 @@ export function HeroSection() {
       }} />
       
       {/* Decorative glass elements with blur */}
-      <div className="absolute top-32 right-12 w-56 h-56 glass-sm rounded-full opacity-20 hidden lg:block blur-3xl" />
-      <div className="absolute bottom-40 left-12 w-48 h-48 glass-sm rounded-full opacity-15 hidden lg:block blur-3xl" />
+      <div className="absolute top-32 right-12 w-56 h-56 glass-crystal-sm rounded-full opacity-20 hidden lg:block blur-3xl" />
+      <div className="absolute bottom-40 left-12 w-48 h-48 glass-crystal-sm rounded-full opacity-15 hidden lg:block blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: Premium Typography */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-sm">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-crystal-sm">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                 <p className="text-sm font-medium text-muted-foreground">Available for Projects</p>
               </div>
@@ -56,7 +56,7 @@ export function HeroSection() {
                   Explore Expertise
                 </a>
               </Button>
-              <Button variant="outline" className="gap-2 border-muted hover:border-muted/80 hover:bg-muted/40 dark:hover:bg-accent/10 rounded-full px-8 py-6 text-base transition-all duration-300" asChild>
+              <Button variant="outline" className="gap-2 border-muted hover:glass-crystal-sm dark:hover:glass-crystal-sm rounded-full px-8 py-6 text-base transition-all duration-300" asChild>
                 <a href="#" download>
                   <Download className="w-4 h-4" />
                   Download CV
@@ -87,7 +87,7 @@ export function HeroSection() {
               <div className="absolute -inset-1 bg-gradient-to-r from-accent/30 via-accent/20 to-accent/30 rounded-[2.5rem] blur-3xl opacity-30 group-hover:opacity-50 transition-opacity duration-700 animate-pulse" />
               
               {/* Crystal glass card */}
-              <div className="relative glass-xl rounded-[2.5rem] p-8 lg:p-10 transform group-hover:scale-[1.02] transition-all duration-500 space-y-8">
+              <div className="relative glass-crystal-lg rounded-[2.5rem] p-8 lg:p-10 transform group-hover:scale-[1.02] transition-all duration-500 space-y-8">
                 {/* Premium Avatar */}
                 <div className="flex justify-center">
                   <div className="relative w-32 h-32">
@@ -134,7 +134,7 @@ export function HeroSection() {
                     {/* GitHub */}
                     <Button 
                       variant="outline" 
-                      className="gap-2 border-muted/30 hover:border-muted/60 hover:bg-muted/30 dark:hover:bg-accent/10 rounded-full py-5 transition-all duration-300"
+                      className="gap-2 border-muted/30 hover:glass-crystal-sm dark:hover:glass-crystal-sm rounded-full py-5 transition-all duration-300"
                       asChild
                     >
                       <a href="https://github.com/hectormendez" target="_blank" rel="noopener noreferrer" title="GitHub">
@@ -146,7 +146,7 @@ export function HeroSection() {
                     {/* Website */}
                     <Button 
                       variant="outline" 
-                      className="gap-2 border-muted/30 hover:border-muted/60 hover:bg-muted/30 dark:hover:bg-accent/10 rounded-full py-5 transition-all duration-300"
+                      className="gap-2 border-muted/30 hover:glass-crystal-sm dark:hover:glass-crystal-sm rounded-full py-5 transition-all duration-300"
                       asChild
                     >
                       <a href="https://hectormendez.io" target="_blank" rel="noopener noreferrer" title="Website">
