@@ -64,7 +64,7 @@ export function HeroSection() {
             </div>
             
             {/* CTA - Mobile: Single button, Desktop: Two buttons */}
-            <div className="pt-2">
+            <div className="pt-2 lg:flex gap-3">
               <Button 
                 className="w-full lg:w-auto gap-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded-full px-6 h-12"
                 asChild
@@ -75,11 +75,74 @@ export function HeroSection() {
               {/* Desktop additional button */}
               <Button 
                 variant="outline" 
-                className="hidden lg:inline-flex ml-3 gap-2 border-muted hover:bg-muted/50 hover:border-muted rounded-full px-6 h-12"
+                className="hidden lg:inline-flex gap-2 border-muted hover:bg-muted/50 hover:border-muted rounded-full px-6 h-12"
                 asChild
               >
                 <a href="#">Download Full Project List</a>
               </Button>
+            </div>
+
+            {/* Mobile: Compact Connect with Me Card */}
+            <div className="lg:hidden mt-6 glass rounded-2xl p-5 space-y-4">
+              <div className="text-center space-y-2">
+                <h3 className="text-sm font-semibold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+                  Connect with Me
+                </h3>
+                <p className="text-xs text-muted-foreground">
+                  Ready to build better systems together
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <Button 
+                  className="w-full gap-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded-full h-10 text-sm"
+                  asChild
+                >
+                  <a href="mailto:me@hectormendez.io">
+                    <Mail className="w-3.5 h-3.5" />
+                    me@hectormendez.io
+                  </a>
+                </Button>
+                
+                <Button 
+                  className="w-full gap-2 bg-[#0A66C2] hover:bg-[#0A66C2]/90 text-white rounded-full h-10 text-sm"
+                  asChild
+                >
+                  <a href="https://linkedin.com/in/hectormendez" target="_blank" rel="noopener noreferrer">
+                    <Linkedin className="w-3.5 h-3.5" />
+                    LinkedIn
+                  </a>
+                </Button>
+                
+                <div className="grid grid-cols-2 gap-2">
+                  <Button 
+                    variant="outline" 
+                    className="gap-1.5 border-muted/50 hover:bg-muted/30 hover:border-muted rounded-full h-10 text-xs"
+                    asChild
+                  >
+                    <a href="https://github.com/hectormendez" target="_blank" rel="noopener noreferrer">
+                      <Github className="w-3.5 h-3.5" />
+                      GitHub
+                    </a>
+                  </Button>
+                  
+                  <Button 
+                    variant="outline" 
+                    className="gap-1.5 border-muted/50 hover:bg-muted/30 hover:border-muted rounded-full h-10 text-xs"
+                    asChild
+                  >
+                    <a href="https://hectormendez.io" target="_blank" rel="noopener noreferrer">
+                      <Globe className="w-3.5 h-3.5" />
+                      Website
+                    </a>
+                  </Button>
+                </div>
+              </div>
+              
+              <p className="text-xs text-center text-muted-foreground flex items-center justify-center gap-1">
+                <Phone className="w-3.5 h-3.5" />
+                (702) 609-5075
+              </p>
             </div>
           </div>
 
