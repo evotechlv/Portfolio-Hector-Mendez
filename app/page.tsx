@@ -1,6 +1,5 @@
 import { HeroSection } from "@/components/hero-section"
 import { AboutSection } from "@/components/about-section"
-import { ExpertiseGrid } from "@/components/expertise-grid"
 import { ExperienceTimeline } from "@/components/experience-timeline"
 import { SkillsGrid } from "@/components/skills-grid"
 import { EducationSection } from "@/components/education-section"
@@ -12,7 +11,6 @@ export default function Home() {
     <main className="min-h-screen bg-background">
       <HeroSection />
       <AboutSection />
-      <ExpertiseGrid />
       <ExperienceTimeline />
       <SkillsGrid />
       <EducationSection />
