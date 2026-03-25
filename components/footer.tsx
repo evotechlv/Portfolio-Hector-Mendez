@@ -2,7 +2,7 @@ import { Mail, Linkedin, Github, MapPin, Phone, Globe } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="glass border-t border-white/20 py-12 md:py-16 px-5 md:px-4">
+    <footer className="glass border-t border-white/20 py-12 md:py-16 px-5 md:px-4 mb-20 md:mb-0">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-12">
           {/* Brand */}
