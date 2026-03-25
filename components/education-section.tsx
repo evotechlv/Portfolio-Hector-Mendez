@@ -1,0 +1,92 @@
+"use client"
+
+import { GraduationCap, Award, BookOpen, MapPin, Calendar } from "lucide-react"
+
+const education = [
+  {
+    degree: "Computer Science Engineer",
+    school: "Don Bosco University",
+    location: "El Salvador",
+    period: "2008 - 2016",
+    description: "Comprehensive engineering program covering software development, hardware design, systems architecture, and database management.",
+    icon: GraduationCap,
+    featured: true
+  },
+  {
+    degree: "MBA Financial Management",
+    school: "Washington Business School",
+    location: "Online",
+    period: "2018",
+    description: "Advanced business education focusing on financial analytics, strategic management, project estimation, and business operations.",
+    icon: Award
+  },
+  {
+    degree: "Introduction to Web Development",
+    school: "University of Alicante",
+    location: "Online",
+    period: "2017",
+    description: "Foundations of modern web development including HTML, CSS, JavaScript, responsive design, and WordPress development.",
+    icon: BookOpen
+  }
+]
+
+export function EducationSection() {
+  return (
+    <section id="education" className="py-24 px-4">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-16 space-y-4">
+          <p className="text-primary font-medium tracking-wide uppercase text-sm">
+            Academic Background
+          </p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+            Education
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            A strong foundation combining engineering expertise with business acumen
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {education.map((edu, index) => (
+            <div 
+              key={index}
+              className={`bg-card border rounded-2xl p-6 lg:p-8 shadow-sm hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group ${
+                edu.featured ? 'border-primary/30 ring-1 ring-primary/10' : 'border-border hover:border-primary/20'
+              }`}
+            >
+              <div className="flex flex-col h-full">
+                {edu.featured && (
+                  <span className="text-[10px] px-2 py-0.5 bg-primary text-primary-foreground rounded-full w-fit mb-3 font-medium">
+                    Primary Degree
+                  </span>
+                )}
+                <div className="p-3 rounded-xl bg-primary/10 text-primary shrink-0 w-fit group-hover:scale-110 transition-transform duration-300 mb-4">
+                  <edu.icon className="w-6 h-6" />
+                </div>
+                <div className="space-y-3 flex-1">
+                  <h3 className="text-lg font-semibold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+                    {edu.degree}
+                  </h3>
+                  <p className="text-primary font-medium text-sm">{edu.school}</p>
+                  <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+                    <span className="flex items-center gap-1">
+                      <MapPin className="w-3 h-3" />
+                      {edu.location}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Calendar className="w-3 h-3" />
+                      {edu.period}
+                    </span>
+                  </div>
+                  <p className="text-muted-foreground text-sm leading-relaxed pt-2">
+                    {edu.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
