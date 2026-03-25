@@ -126,7 +126,7 @@ export function ExpertiseGrid() {
             { label: "Budget Managed", value: "$10M+" },
             { label: "Efficiency Gain", value: "40%" }
           ].map((stat) => (
-            <div key={stat.label} className="glass-crystal rounded-2xl p-6 text-center hover:shadow-lg hover:shadow-accent/10 hover:scale-105 transition-all duration-300">
+            <div key={stat.label} className="glass-crystal rounded-2xl p-6 text-center hover:glass-crystal-lg transition-all duration-300">
               <p className="text-3xl font-bold text-accent mb-2" style={{ fontFamily: 'var(--font-display)' }}>
                 {stat.value}
               </p>
