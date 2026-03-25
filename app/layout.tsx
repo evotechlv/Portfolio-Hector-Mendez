@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Space_Grotesk } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
-import { ThemeProvider } from 'next-themes'
 import './globals.css'
 
 const inter = Inter({ 
@@ -16,7 +15,7 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: 'Hector Mendez | Construction Operations & Design Specialist',
-  description: 'Crystal Architect Portfolio - Construction Operations & Design Specialist bridging hardware, software, and DevOps principles with construction expertise.',
+  description: 'iOS-inspired portfolio of Hector Mendez - Construction Operations & Design Specialist bridging hardware, software, and DevOps principles with construction expertise.',
   keywords: ['Construction Operations', 'Design Specialist', 'Software Engineer', 'Estimations', 'Las Vegas'],
 }
 
@@ -30,12 +29,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased bg-gradient-studio dark:bg-gradient-dark texture-paper blueprint-grid transition-colors duration-300`}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          {children}
-          <Analytics />
-        </ThemeProvider>
+    <html lang="en">
+      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased bg-gradient-studio texture-paper`}>
+        {children}
+        <Analytics />
       </body>
     </html>
   )
