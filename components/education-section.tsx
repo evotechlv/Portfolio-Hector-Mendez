@@ -32,43 +32,43 @@ const education = [
 
 export function EducationSection() {
   return (
-    <section id="education" className="py-16 md:py-24 px-5 md:px-4 bg-background">
+    <section id="education" className="py-12 md:py-24 px-5 md:px-4 bg-background border-t border-foreground/10">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-12 md:mb-16 space-y-4">
-          <p className="text-accent font-semibold tracking-wide uppercase text-xs">
+        <div className="mb-8 md:mb-16 space-y-3 md:space-y-4">
+          <p className="text-muted-foreground font-light tracking-wider uppercase text-xs">
             Academic Background
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
             Education
           </h2>
-          <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xs md:text-sm text-muted-foreground max-w-2xl font-light">
             A strong foundation combining engineering expertise with business acumen
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {education.map((edu, index) => (
             <div 
               key={index}
-              className={`glass rounded-2xl p-6 md:p-8 shadow-sm hover:glass-xl hover:shadow-lg hover:shadow-accent/10 transition-all duration-300 group ${
-                edu.featured ? 'ring-1 ring-accent/20' : ''
+              className={`border border-foreground/20 rounded-none p-5 md:p-6 hover:border-foreground/40 hover:bg-foreground/[0.03] transition-all duration-300 group bg-foreground/[0.01] ${
+                edu.featured ? 'ring-1 ring-foreground/30' : ''
               }`}
             >
               <div className="flex flex-col h-full">
                 {edu.featured && (
-                  <span className="text-[10px] px-2 py-0.5 bg-accent text-accent-foreground rounded-full w-fit mb-3 font-medium">
+                  <span className="text-[10px] px-2 py-0.5 border border-foreground/30 text-muted-foreground rounded-none w-fit mb-3 font-light tracking-wider uppercase">
                     Primary Degree
                   </span>
                 )}
-                <div className="p-3 rounded-xl bg-accent/10 text-accent shrink-0 w-fit group-hover:scale-110 transition-transform duration-300 mb-4">
-                  <edu.icon className="w-6 h-6" />
+                <div className="p-2 border border-foreground/20 text-foreground shrink-0 w-fit mb-4 group-hover:border-foreground/40 transition-colors">
+                  <edu.icon className="w-4 h-4" />
                 </div>
-                <div className="space-y-3 flex-1">
-                  <h3 className="text-base md:text-lg font-semibold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+                <div className="space-y-2 flex-1">
+                  <h3 className="text-sm md:text-base font-semibold text-foreground tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
                     {edu.degree}
                   </h3>
-                  <p className="text-accent font-medium text-sm">{edu.school}</p>
-                  <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-2 sm:gap-3 text-xs text-muted-foreground">
+                  <p className="text-muted-foreground font-light text-xs md:text-sm">{edu.school}</p>
+                  <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-1.5 sm:gap-2 text-xs text-muted-foreground font-light">
                     <span className="flex items-center gap-1">
                       <MapPin className="w-3 h-3 shrink-0" />
                       {edu.location}
@@ -78,7 +78,7 @@ export function EducationSection() {
                       {edu.period}
                     </span>
                   </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed pt-2">
+                  <p className="text-muted-foreground text-xs md:text-sm leading-relaxed pt-1 font-light">
                     {edu.description}
                   </p>
                 </div>
