@@ -97,7 +97,15 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground relative;
+    background-image: 
+      /* Subtle circuit-like grid */
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      /* Faint dot matrix pattern */
+      radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 50px 50px;
+    background-position: 0 0, 0 0, 25px 25px;
   }
 }
 
