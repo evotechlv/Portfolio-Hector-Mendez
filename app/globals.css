@@ -4,49 +4,49 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* iOS Studio White Theme - Light Mode */
-  /* Primary Background: System Gray 6 (#F2F2F7) */
-  --background: oklch(0.9765 0.002 264);
-  --foreground: oklch(0.11 0.008 264);
-  /* Glass & Cards: Ultra-Light Material with backdrop blur */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.11 0.008 264);
-  --popover: oklch(0.99 0.002 264);
-  --popover-foreground: oklch(0.11 0.008 264);
-  /* Vibrant Azure (#007AFF) for interactive elements */
-  --primary: oklch(0.512 0.213 264.64);
-  --primary-foreground: oklch(1 0 0);
-  /* Secondary: Softer blue-gray */
-  --secondary: oklch(0.94 0.004 264);
-  --secondary-foreground: oklch(0.11 0.008 264);
-  /* Muted: Light gray for secondary elements */
-  --muted: oklch(0.95 0.002 264);
-  --muted-foreground: oklch(0.50 0.008 264);
-  /* Accent: Same as primary - Vibrant Azure */
-  --accent: oklch(0.512 0.213 264.64);
-  --accent-foreground: oklch(1 0 0);
+  /* Bold Dark Aesthetic - Deep Black Background */
+  /* Primary Background: Near Black (#0A0A0A) */
+  --background: oklch(0.06 0.001 0);
+  --foreground: oklch(0.98 0.001 0);
+  /* Glass & Cards: Subtle dark gray with white text */
+  --card: oklch(0.10 0.001 0);
+  --card-foreground: oklch(0.98 0.001 0);
+  --popover: oklch(0.12 0.001 0);
+  --popover-foreground: oklch(0.98 0.001 0);
+  /* Vibrant White/Silver for interactive elements - high contrast */
+  --primary: oklch(0.95 0.005 0);
+  --primary-foreground: oklch(0.06 0.001 0);
+  /* Secondary: Lighter gray */
+  --secondary: oklch(0.15 0.001 0);
+  --secondary-foreground: oklch(0.98 0.001 0);
+  /* Muted: Subtle gray for secondary elements */
+  --muted: oklch(0.20 0.001 0);
+  --muted-foreground: oklch(0.60 0.008 264);
+  /* Accent: Bright white for emphasis */
+  --accent: oklch(0.98 0.002 0);
+  --accent-foreground: oklch(0.06 0.001 0);
   --destructive: oklch(0.62 0.25 29.2);
   --destructive-foreground: oklch(1 0 0);
-  /* Borders: Subtle gray */
-  --border: oklch(0.92 0.002 264);
-  --input: oklch(0.98 0.002 264);
-  --ring: oklch(0.512 0.213 264.64);
-  --chart-1: oklch(0.512 0.213 264.64);
-  --chart-2: oklch(0.55 0.12 200);
-  --chart-3: oklch(0.65 0.10 150);
-  --chart-4: oklch(0.58 0.15 280);
-  --chart-5: oklch(0.70 0.12 60);
+  /* Borders: Dark gray */
+  --border: oklch(0.15 0.001 0);
+  --input: oklch(0.12 0.001 0);
+  --ring: oklch(0.98 0.002 0);
+  --chart-1: oklch(0.95 0.005 0);
+  --chart-2: oklch(0.85 0.010 200);
+  --chart-3: oklch(0.75 0.012 150);
+  --chart-4: oklch(0.80 0.010 280);
+  --chart-5: oklch(0.70 0.015 60);
   --radius: 1.5rem;
-  --sidebar: oklch(0.9765 0.002 264);
-  --sidebar-foreground: oklch(0.11 0.008 264);
-  --sidebar-primary: oklch(0.512 0.213 264.64);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.98 0.002 264);
-  --sidebar-accent-foreground: oklch(0.11 0.008 264);
-  --sidebar-border: oklch(0.92 0.002 264);
-  --sidebar-ring: oklch(0.512 0.213 264.64);
+  --sidebar: oklch(0.06 0.001 0);
+  --sidebar-foreground: oklch(0.98 0.001 0);
+  --sidebar-primary: oklch(0.98 0.002 0);
+  --sidebar-primary-foreground: oklch(0.06 0.001 0);
+  --sidebar-accent: oklch(0.20 0.001 0);
+  --sidebar-accent-foreground: oklch(0.98 0.001 0);
+  --sidebar-border: oklch(0.15 0.001 0);
+  --sidebar-ring: oklch(0.98 0.002 0);
   /* Glass effect opacity */
-  --glass-opacity: 0.8;
+  --glass-opacity: 0.65;
   --glass-blur: 20px;
 }
 
@@ -97,7 +97,15 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground relative;
+    background-image: 
+      /* Subtle circuit-like grid */
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      /* Faint dot matrix pattern */
+      radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 50px 50px;
+    background-position: 0 0, 0 0, 25px 25px;
   }
 }
 
@@ -137,5 +145,17 @@
   /* Subtle gradient background */
   .bg-gradient-studio {
     background: linear-gradient(135deg, #F2F2F7 0%, #FFFFFF 100%);
+  }
+}
+
+/* Utilities for mobile optimizations */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }

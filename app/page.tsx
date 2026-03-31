@@ -5,6 +5,7 @@ import { SkillsGrid } from "@/components/skills-grid"
 import { EducationSection } from "@/components/education-section"
 import { ProjectsSection } from "@/components/projects-section"
 import { Footer } from "@/components/footer"
+import { MobileTabBar } from "@/components/mobile-tab-bar"
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <EducationSection />
       <ProjectsSection />
       <Footer />
+      <MobileTabBar />
     </main>
   )
 }

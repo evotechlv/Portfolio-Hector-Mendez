@@ -1,6 +1,7 @@
 "use client"
 
 import { HardHat, Truck, Calculator, Palette, Box, FileText } from "lucide-react"
+import { HorizontalScroll, ScrollCard } from "./horizontal-scroll"
 
 const expertiseCards = [
   {
@@ -37,47 +38,68 @@ const expertiseCards = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 px-4 bg-background">
+    <section id="about" className="py-12 md:py-24 px-5 md:px-4 bg-background border-t border-foreground/10">
       <div className="max-w-6xl mx-auto">
-        {/* Profile Section */}
-        <div className="max-w-4xl mx-auto text-center mb-16 space-y-6">
-          <p className="text-accent font-semibold tracking-wide uppercase text-xs">
-            Profile
+        {/* Profile Section - Shorter on mobile */}
+        <div className="max-w-4xl mx-auto mb-8 md:mb-16 space-y-3 md:space-y-6">
+          <p className="text-muted-foreground font-light tracking-wider uppercase text-xs">
+            About
           </p>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
             The Master Builder
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-            Experienced and proactive engineer integrating hardware, software, and DevOps principles to optimize system reliability and scalability. Extensive experience in construction, estimations, data analysis, and financial management.
-          </p>
-          <p className="text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-            Proven track record as a consultant for large-scale projects, 3D rendering for future developments, and managing multinational operations. Expertise in bidding, risk analysis, and implementing warehouse control systems. Skilled in software development, hardware design, and data-driven decision-making.
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed font-light max-w-3xl">
+            Experienced and proactive engineer integrating hardware, software, and DevOps principles to optimize system reliability and scalability.
           </p>
         </div>
 
-        {/* Core Construction Expertise Bento Grid */}
-        <div className="space-y-6">
-          <div className="text-center">
-            <p className="text-accent font-semibold tracking-wide uppercase text-xs">
-              Core Construction Expertise
+        {/* Core Construction Expertise */}
+        <div className="space-y-4 md:space-y-6">
+          <div>
+            <p className="text-muted-foreground font-light tracking-wider uppercase text-xs">
+              Core Expertise
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {/* Mobile: Horizontal Scroll Carousel */}
+          <div className="lg:hidden -mx-5 md:-mx-4">
+            <HorizontalScroll>
+              {expertiseCards.map((card) => (
+                <ScrollCard key={card.title}>
+                  <div className="border border-foreground/20 rounded-none p-5 h-full hover:border-foreground/40 transition-all duration-300 group bg-foreground/[0.02]">
+                    <div className="space-y-3">
+                      <div className="p-2 border border-foreground/20 text-foreground group-hover:border-foreground/40 transition-colors w-fit">
+                        <card.icon className="w-4 h-4" />
+                      </div>
+                      <h3 className="text-sm font-semibold text-foreground tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
+                        {card.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3 font-light">
+                        {card.description}
+                      </p>
+                    </div>
+                  </div>
+                </ScrollCard>
+              ))}
+            </HorizontalScroll>
+          </div>
+          
+          {/* Desktop: Grid Layout */}
+          <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {expertiseCards.map((card) => (
               <div 
                 key={card.title}
-                className="glass rounded-2xl p-6 hover:glass-xl hover:shadow-lg hover:shadow-accent/10 transition-all duration-300 group"
+                className="border border-foreground/20 rounded-none p-6 hover:border-foreground/40 hover:bg-foreground/[0.03] transition-all duration-300 group bg-foreground/[0.01]"
               >
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors shrink-0">
-                    <card.icon className="w-6 h-6" />
+                <div className="flex flex-col gap-3">
+                  <div className="p-2 border border-foreground/20 text-foreground group-hover:border-foreground/40 transition-colors w-fit">
+                    <card.icon className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-foreground mb-2" style={{ fontFamily: 'var(--font-display)' }}>
+                    <h3 className="text-base font-semibold text-foreground mb-2 tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
                       {card.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-sm text-muted-foreground leading-relaxed font-light">
                       {card.description}
                     </p>
                   </div>
@@ -87,28 +109,28 @@ export function AboutSection() {
           </div>
         </div>
 
-        {/* Optimized Experience Bullets */}
-        <div className="mt-16 glass rounded-2xl p-8">
-          <h3 className="text-xl font-semibold text-foreground mb-6" style={{ fontFamily: 'var(--font-display)' }}>
+        {/* Key Accomplishments */}
+        <div className="mt-8 md:mt-12 border border-foreground/10 rounded-none p-6 md:p-8 bg-foreground/[0.01]">
+          <h3 className="text-base md:text-lg font-semibold text-foreground mb-4 md:mb-6 tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
             Key Accomplishments
           </h3>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             <div className="space-y-2">
-              <p className="text-accent font-semibold text-sm uppercase tracking-wider">Project Tracking & Logistics</p>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                Orchestrated complex overseas delivery schedules, maintaining 100% visibility on ETAs and warehouse inventory control.
+              <p className="text-muted-foreground font-light text-xs uppercase tracking-wider">Project Tracking & Logistics</p>
+              <p className="text-muted-foreground text-xs md:text-sm leading-relaxed font-light">
+                Orchestrated complex overseas delivery schedules, maintaining 100% visibility on ETAs.
               </p>
             </div>
             <div className="space-y-2">
-              <p className="text-accent font-semibold text-sm uppercase tracking-wider">Financial Management</p>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                Executed comprehensive project estimations and financial POs for multi-trade builds, including electrical, drywall, and custom trim.
+              <p className="text-muted-foreground font-light text-xs uppercase tracking-wider">Financial Management</p>
+              <p className="text-muted-foreground text-xs md:text-sm leading-relaxed font-light">
+                Executed comprehensive project estimations and financial POs for multi-trade builds.
               </p>
             </div>
             <div className="space-y-2">
-              <p className="text-accent font-semibold text-sm uppercase tracking-wider">Technical Design</p>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                Translated client needs into technical floor plans and detailed cabinet renderings using Adobe Creative Suite and SketchUp.
+              <p className="text-muted-foreground font-light text-xs uppercase tracking-wider">Technical Design</p>
+              <p className="text-muted-foreground text-xs md:text-sm leading-relaxed font-light">
+                Translated client needs into technical floor plans and detailed cabinet renderings.
               </p>
             </div>
           </div>
