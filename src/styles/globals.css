@@ -12,7 +12,7 @@
   --bg: #0e0e0c;
   --bg2: #141412;
   --bg3: #1a1a17;
-  --fg: #e8e5dc;
+  --fg: #eae9e6;
   --fg2: #a09d93;
   --fg3: #eae9e6;
   --accent: oklch(60% 0.18 145);
@@ -29,9 +29,9 @@
 
 /* ── Light mode ── */
 body.light {
-  --bg: #f5f4f0;
-  --bg2: #eceae4;
-  --bg3: #e2e0d8;
+  --bg: #eae9e6;
+  --bg2: #eae9e6;
+  --bg3: #eae9e6;
   --fg: #1a1a16;
   --fg2: #2c2a25;
   --fg3: #676661;
